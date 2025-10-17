@@ -3,19 +3,35 @@ using UnityEngine;
 
 public class LifeComponent : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField] 
     private float timeToLive = 15f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    [SerializeField]
+    private float timeRecover;
+
     void Update()
     {
         timeToLive -= Time.deltaTime;
+        if (timeToLive <= 0)
+        {
+            TimeKill();
+        }
     }
 
-    
+    private void TimeKill()
+    {
+        //Animacion de morir por tiempo
+        GameManager.Instance.GameEnd();
+    }
+
+    public void RedKill() 
+    {
+        //Animacion de morir por casilla
+        GameManager.Instance.GameEnd();
+    }
+
+    public void PickIceCube() 
+    {
+        timeToLive = timeToLive + timeRecover;
+    }
 }
