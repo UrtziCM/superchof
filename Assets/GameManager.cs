@@ -21,14 +21,19 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+
     public GameObject currentInteractror { get; set; }
 
     public void GameStart()
     {
-        //if (primera prtida == true)
-        //{
-        //  Tutorial();
-        //}
+        if (PlayerPrefs.GetInt("tutorial")==0)
+        {
+            Tutorial();
+        }
+        else
+        {
+            //Generacion normall
+        }
     }
 
     public void GameStop()
@@ -44,8 +49,8 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
-        //Ponemos una cuenta atras
-        yield return new WaitForSeconds(3);
+        //Ponemos una cuenta atras del tiempo real
+        yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1.0f;
     }
 
@@ -53,10 +58,17 @@ public class GameManager : MonoBehaviour
     {
         //Score
         //End
+
     }
 
     private void Tutorial()
     {
         //Llama a la generacion de inicio que es el tutorial
+        PlayerPrefs.SetInt("tutorial", 1);
+    }
+
+    private void SaveData()
+    {
+        PlayerPrefs.Save();
     }
 }
