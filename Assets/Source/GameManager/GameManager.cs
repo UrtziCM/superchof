@@ -1,10 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public bool gamePaused = false;
+    private int maxSaveScore;
+    private bool needTutorial;
+
+    private Score ScoreManagerInstance;
 
     public static GameManager Instance
     {
@@ -22,11 +27,24 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        maxSaveScore = PlayerPrefs.GetInt("Score");
+        if (PlayerPrefs.GetInt("tutorial") == 0)
+        {
+            needTutorial = true;
+        }
+        else
+        {
+            needTutorial = false;
+        }
+    }
+
     public GameObject currentInteractror { get; set; }
 
     public void GameStart()
     {
-        if (PlayerPrefs.GetInt("tutorial")==0)
+        if (needTutorial)
         {
             Tutorial();
         }
@@ -56,7 +74,10 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        //Score
+        if(IsHighScore())
+        {
+           //Pantalla de nuevo record
+        }
         //End
 
     }
@@ -67,8 +88,19 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("tutorial", 1);
     }
 
+    private bool IsHighScore()
+    {
+        if (ScoreManagerInstance.currentScore > maxSaveScore)
+        {
+            maxSaveScore = ScoreManagerInstance.currentScore;
+            return true;
+        }
+        return false;
+    }
+
     private void SaveData()
     {
+        PlayerPrefs.SetInt("Score", maxSaveScore);
         PlayerPrefs.Save();
     }
 }
