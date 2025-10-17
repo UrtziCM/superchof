@@ -3,8 +3,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveDistance;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] 
+    private float moveDistance;
+    [SerializeField] 
+    private float moveSpeed;
 
     private Vector3 targetPosition;
 
@@ -17,8 +19,11 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.performed)
         {
-            targetPosition = transform.position + Vector3.forward * moveDistance;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            Vector3 pos = transform.position;
+            Vector2 PositionToMove = new Vector2(pos.x, pos.z++);
+            //Consigo la casilla del board manager
+            //Pregunto a la casilla si se puede mover
+
         }
     }
     
@@ -26,8 +31,10 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.performed)
         {
-            targetPosition = transform.position + Vector3.back * moveDistance;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            Vector3 pos = transform.position;
+            Vector2 PositionToMove = new Vector2(pos.x, pos.z--);
+            //Consigo la casilla del board manager
+            //Pregunto a la casilla si se puede mover
         }
     }
     
@@ -35,8 +42,10 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.performed)
         {
-            targetPosition = transform.position + Vector3.left * moveDistance;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            Vector3 pos = transform.position;
+            Vector2 PositionToMove = new Vector2(pos.x--, pos.z);
+            //Consigo la casilla del board manager
+            //Pregunto a la casilla si se puede mover
         }
     }
     
@@ -44,8 +53,10 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.performed)
         {
-            targetPosition = transform.position + Vector3.right * moveDistance;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            Vector3 pos = transform.position;
+            Vector2 PositionToMove = new Vector2(pos.x++, pos.z);
+            //Consigo la casilla del board manager
+            //Pregunto a la casilla si se puede mover
         }
     }
     
