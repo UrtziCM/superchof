@@ -9,10 +9,10 @@ public enum TILE_TOP : byte
     TONGS = 3,
 
     // Ice cube
-    ICE_CUBE = 44,
+    ICE_CUBE = 4,
 
     // Dangerous
-    GRILL = 100,
+    GRILL = 5,
 
     // Base
     NONE = 255,
@@ -27,6 +27,9 @@ public class TileComponent : MonoBehaviour
     [SerializeField]
     private Vector3 attachPosition;
 
+    [SerializeField]
+    private GameObject[] toppers = new GameObject[6];
+
     public bool IsTraversable()
     {
         return (int)tileTop < 4; // All the toppers go before 4 in the enum (haha be4) 
@@ -34,13 +37,30 @@ public class TileComponent : MonoBehaviour
 
     private void OnValidate()
     {
-        // Change model in editor goes here
+        UpdateCurrentTopper();
     }
     void Start()
     {
+        UpdateCurrentTopper();
+    }
+
+    void Update()
+    {
+
+    }
+
+    private void UpdateCurrentTopper() {
+        for (int i = 0; i < toppers.Length; i++)
+        {
+            if (toppers[i] != null)
+                toppers[i].SetActive(false);
+        }
+
+
         switch (tileTop)
         {
             case TILE_TOP.SUGAR:
+                toppers[(int)TILE_TOP.SUGAR].SetActive(true);
                 break;
             case TILE_TOP.FORK:
                 break;
@@ -48,10 +68,8 @@ public class TileComponent : MonoBehaviour
                 break;
             case TILE_TOP.SPOON:
                 break;
-
             case TILE_TOP.ICE_CUBE:
                 break;
-
             case TILE_TOP.GRILL:
                 break;
             default:
@@ -59,10 +77,7 @@ public class TileComponent : MonoBehaviour
         }
     }
 
-    void Update()
-    {
 
-    }
 
     private void OnDrawGizmosSelected()
     {
