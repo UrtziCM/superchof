@@ -4,12 +4,18 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject tilePrefab;
+
     private static GameManager instance;
     public bool gamePaused = false;
     private int maxSaveScore;
     private bool needTutorial;
 
+
+
     private Score ScoreManagerInstance;
+    private BoardGenerator boardGenerator;
 
     public static GameManager Instance
     {
@@ -29,6 +35,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        boardGenerator = new BoardGenerator(Vector3.zero + Vector3.left * 4, tilePrefab);
+        for (int i = 0; i < 20; i++)
+        {
+            boardGenerator.GenerateRow();
+        }
+
         maxSaveScore = PlayerPrefs.GetInt("Score");
         if (PlayerPrefs.GetInt("tutorial") == 0)
         {
@@ -38,7 +50,12 @@ public class GameManager : MonoBehaviour
         {
             needTutorial = false;
         }
+
+
     }
+
+
+
 
     public GameObject currentInteractror { get; set; }
 
