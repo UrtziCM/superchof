@@ -22,7 +22,7 @@ public enum TILE_TOP : byte
 public class TileComponent : MonoBehaviour
 {
     [SerializeField]
-    private TILE_TOP tileTop;
+    private TILE_TOP TileTop { get; set; }
 
     [SerializeField]
     private Vector3 attachPosition;
@@ -32,7 +32,7 @@ public class TileComponent : MonoBehaviour
 
     public bool IsTraversable()
     {
-        return (int)tileTop < 4; // All the toppers go before 4 in the enum (haha be4) 
+        return (int)TileTop < 4; // All the toppers go before 4 in the enum (haha be4) 
     }
 
     private void OnValidate()
