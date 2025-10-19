@@ -25,7 +25,7 @@ public class TileComponent : MonoBehaviour
     private TILE_TOP TileTop { get; set; }
 
     [SerializeField]
-    private Vector3 attachPosition;
+    public Vector3 attachPosition;
 
     [SerializeField]
     private GameObject[] toppers = new GameObject[6];
@@ -57,10 +57,10 @@ public class TileComponent : MonoBehaviour
         }
 
 
-        switch (tileTop)
+        switch (TileTop)
         {
             case TILE_TOP.SUGAR:
-                toppers[(int)TILE_TOP.SUGAR].SetActive(true);
+                //toppers[(int)TILE_TOP.SUGAR].SetActive(true);
                 break;
             case TILE_TOP.FORK:
                 break;
