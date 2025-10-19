@@ -42,6 +42,7 @@ public class TileComponent : MonoBehaviour
     void Start()
     {
         UpdateCurrentTopper();
+        attachPosition = transform.position;
     }
 
     void Update()
