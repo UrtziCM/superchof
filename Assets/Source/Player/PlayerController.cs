@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private float moveDistance;
-    [SerializeField] 
+    [SerializeField]
     private float moveSpeed;
 
     private Vector3 targetPosition;
@@ -19,45 +19,63 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.performed)
         {
-            Vector3 pos = transform.position;
-            Vector2 PositionToMove = new Vector2(pos.x, pos.z++);
-            //Consigo la casilla del board manager
-            //Pregunto a la casilla si se puede mover
-
+            CheckAndMove(Vector3.forward);
         }
     }
-    
+
     public void MoveBack(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.performed)
         {
-            Vector3 pos = transform.position;
-            Vector2 PositionToMove = new Vector2(pos.x, pos.z--);
-            //Consigo la casilla del board manager
-            //Pregunto a la casilla si se puede mover
+            CheckAndMove(Vector3.back);
         }
     }
-    
+
     public void MoveLeft(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.performed)
         {
-            Vector3 pos = transform.position;
-            Vector2 PositionToMove = new Vector2(pos.x--, pos.z);
-            //Consigo la casilla del board manager
-            //Pregunto a la casilla si se puede mover
+            CheckAndMove(Vector3.left);
         }
     }
-    
+
     public void MoveRight(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.performed)
         {
-            Vector3 pos = transform.position;
-            Vector2 PositionToMove = new Vector2(pos.x++, pos.z);
-            //Consigo la casilla del board manager
-            //Pregunto a la casilla si se puede mover
+            CheckAndMove(Vector3.right);
         }
     }
-    
+
+    private void CheckAndMove(Vector3 direction)
+    {
+        Vector3 boxPos = transform.position + direction;
+        Collider[] hitCollider = Physics.OverlapBox(boxPos, transform.localScale * 0.25f, Quaternion.identity);
+        foreach (Collider col in hitCollider)
+        {
+            TileComponent tile = col.gameObject.GetComponent<TileComponent>();
+            if (tile != null && tile.IsTraversable())
+            {
+                transform.position = tile.attachPosition;
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Vector3 boxforward = transform.position + Vector3.forward;
+        Vector3 boxback = transform.position + Vector3.back;
+        Vector3 boxleft = transform.position + Vector3.left;
+        Vector3 boxright = transform.position + Vector3.right;
+        Gizmos.color = Color.red;
+        // Check that it is being run in Play Mode, so it doesn't try to draw this in Editor mode
+        if (Application.isPlaying)
+        {
+            // Draw a cube where the OverlapBox is (positioned where your GameObject is as well as a size)
+            Gizmos.DrawWireCube(boxforward, transform.localScale * 0.25f);
+            Gizmos.DrawWireCube(boxback, transform.localScale * 0.25f);
+            Gizmos.DrawWireCube(boxleft, transform.localScale * 0.25f);
+            Gizmos.DrawWireCube(boxright, transform.localScale * 0.25f);
+        }
+    }
 }
