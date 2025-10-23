@@ -44,7 +44,7 @@ public class LifeComponent : MonoBehaviour
         //Animacion
         GameManager.Instance.GameEnd();
     }
-    public void AddTimeToLive(int time) 
+    public void AddTimeToLive(int time = 4) 
     {
 
     }
