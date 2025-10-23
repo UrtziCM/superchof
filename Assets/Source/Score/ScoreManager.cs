@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Score
+public class ScoreManager
 {
     public int currentScore = 0;
     [SerializeField] public GameObject player;
