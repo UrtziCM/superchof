@@ -83,6 +83,6 @@ public class TileComponent : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(transform.position + attachPosition, Vector3.one * .25f);
+        Gizmos.DrawCube(attachPosition, Vector3.one * .25f);
     }
 }
