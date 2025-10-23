@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1442242457163756179, guid: f5a82ba913027ae4bb4489668adc2532, type: 3}
   gamePaused: 0
+  maxSaveScore: 0
 --- !u!4 &1079153447
 Transform:
   m_ObjectHideFlags: 0
