@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    private Score ScoreManagerInstance = new();
+    private Score scoreManagerInstance = new();
     private BoardGenerator boardGenerator;
 
     public static GameManager Instance
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        if(ScoreManagerInstance.IsHighScore())
+        if(scoreManagerInstance.IsHighScore())
         {
            //Pantalla de nuevo record
         }
@@ -107,7 +107,8 @@ public class GameManager : MonoBehaviour
 
     public void AddScore()
     {
-        ScoreManagerInstance.AddPoints();
+        scoreManagerInstance.AddPoints();
+        boardGenerator.GenerateRow();
     }
     private void SaveData()
     {
