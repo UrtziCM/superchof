@@ -7,11 +7,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject tilePrefab;
 
+    [SerializeField]
+    GameObject player;
+
     private static GameManager instance;
     public bool gamePaused = false;
     public int maxSaveScore;
     private bool needTutorial;
-
+    private float maxForwardPos;
 
 
     private ScoreManager scoreManagerInstance = new();
@@ -93,10 +96,21 @@ public class GameManager : MonoBehaviour
     {
         if(scoreManagerInstance.IsHighScore())
         {
-           //Pantalla de nuevo record
+            //Pantalla de nuevo record
+            SaveData();
         }
         //End
 
+    }
+
+    private bool IsMaxForward()
+    {
+        if (player.transform.position.z > maxForwardPos)
+        {
+            maxForwardPos = player.transform.position.z;
+            return true;
+        }
+        return false;
     }
 
     private void Tutorial()
@@ -105,10 +119,13 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("tutorial", 1);
     }
 
-    public void AddScore()
+    public void TryAddScore()
     {
-        scoreManagerInstance.AddPoints();
-        boardGenerator.GenerateRow();
+        if (IsMaxForward())
+        {
+            scoreManagerInstance.AddPoints();
+            boardGenerator.GenerateRow();
+        }
     }
     private void SaveData()
     {

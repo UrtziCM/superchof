@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.performed)
         {
             CheckAndMove(Vector3.forward);
-            GameManager.Instance.AddScore();
+            GameManager.Instance.TryAddScore();
         }
     }
 
