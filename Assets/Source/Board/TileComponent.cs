@@ -22,7 +22,7 @@ public enum TILE_TOP : byte
 public class TileComponent : MonoBehaviour
 {
     [SerializeField]
-    private TILE_TOP TileTop { get; set; }
+    private TILE_TOP TileTop { get; set; } = TILE_TOP.NONE;
 
     [SerializeField]
     public Vector3 attachPosition;
@@ -32,7 +32,7 @@ public class TileComponent : MonoBehaviour
 
     public bool IsTraversable()
     {
-        return (int)TileTop < 4; // All the toppers go before 4 in the enum (haha be4) 
+        return (int)TileTop > 4; // All the toppers go before 4 in the enum (haha be4) 
     }
 
     private void OnValidate()
@@ -61,7 +61,7 @@ public class TileComponent : MonoBehaviour
         switch (TileTop)
         {
             case TILE_TOP.SUGAR:
-                //toppers[(int)TILE_TOP.SUGAR].SetActive(true);
+                toppers[(int)TILE_TOP.SUGAR].SetActive(true);
                 break;
             case TILE_TOP.FORK:
                 break;
