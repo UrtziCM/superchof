@@ -32,7 +32,7 @@ public class TileComponent : MonoBehaviour
 
     public bool IsTraversable()
     {
-        return (int)TileTop > 4; // All the toppers go before 4 in the enum (haha be4) 
+        return TileTop > TILE_TOP.TONGS;
     }
 
     private void OnValidate()
@@ -57,7 +57,7 @@ public class TileComponent : MonoBehaviour
                 toppers[i].SetActive(false);
         }
 
-        if (TileTop < TILE_TOP.NONE)
+        if ( (byte) TileTop < toppers.Length)
             toppers[(int)TileTop].SetActive(true);
     }
 
