@@ -57,25 +57,8 @@ public class TileComponent : MonoBehaviour
                 toppers[i].SetActive(false);
         }
 
-
-        switch (TileTop)
-        {
-            case TILE_TOP.SUGAR:
-                toppers[(int)TILE_TOP.SUGAR].SetActive(true);
-                break;
-            case TILE_TOP.FORK:
-                break;
-            case TILE_TOP.TONGS:
-                break;
-            case TILE_TOP.SPOON:
-                break;
-            case TILE_TOP.ICE_CUBE:
-                break;
-            case TILE_TOP.GRILL:
-                break;
-            default:
-                break;
-        }
+        if (TileTop < TILE_TOP.NONE)
+            toppers[(int)TileTop].SetActive(true);
     }
 
 
