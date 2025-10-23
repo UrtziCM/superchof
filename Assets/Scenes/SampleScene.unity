@@ -176,6 +176,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+--- !u!1 &299711592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9043053849771414872, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+  m_PrefabInstance: {fileID: 299711591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1442242457163756179, guid: f5a82ba913027ae4bb4489668adc2532, type: 3}
+  player: {fileID: 299711592}
   gamePaused: 0
   maxSaveScore: 0
 --- !u!4 &1079153447
