@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class Score
 {
     public int currentScore = 0;
     [SerializeField] public GameObject player;
