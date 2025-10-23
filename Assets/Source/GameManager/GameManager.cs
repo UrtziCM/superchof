@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    private Score ScoreManagerInstance;
+    private Score ScoreManagerInstance = new();
     private BoardGenerator boardGenerator;
 
     public static GameManager Instance
