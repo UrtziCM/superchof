@@ -115,6 +115,10 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    public void AddScore()
+    {
+        ScoreManagerInstance.AddPoints();
+    }
     private void SaveData()
     {
         PlayerPrefs.SetInt("Score", maxSaveScore);
