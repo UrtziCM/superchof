@@ -22,7 +22,7 @@ public enum TILE_TOP : byte
 public class TileComponent : MonoBehaviour
 {
     [SerializeField]
-    private TILE_TOP TileTop { get; set; } = TILE_TOP.NONE;
+    private TILE_TOP TileTop;
 
     [SerializeField]
     public Vector3 attachPosition;
@@ -37,8 +37,9 @@ public class TileComponent : MonoBehaviour
 
     private void OnValidate()
     {
-        UpdateCurrentTopper();
+        //UpdateCurrentTopper();
     }
+
     void Start()
     {
         UpdateCurrentTopper();
@@ -61,6 +62,10 @@ public class TileComponent : MonoBehaviour
             toppers[(int)TileTop].SetActive(true);
     }
 
+    public void SetTopper(TILE_TOP topper) {
+        TileTop = topper;
+        UpdateCurrentTopper();
+    }
 
 
     private void OnDrawGizmosSelected()

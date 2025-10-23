@@ -7,32 +7,44 @@ public class BoardGenerator : MonoBehaviour
     [SerializeField]
     private byte rowSize = 9;
 
+    [SerializeField]
+    private float topperChance = 0.05f;
+
+
 
     private GameObject tilePrefab;
     private uint currentRow = 0;
 
 
-    public BoardGenerator(Vector3 startingPosition, GameObject tilePrefab) { 
+    public BoardGenerator(Vector3 startingPosition, GameObject tilePrefab)
+    {
         this.startingPosition = startingPosition;
         this.tilePrefab = tilePrefab;
     }
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void GenerateRow() {
+    public void GenerateRow()
+    {
         for (int i = 0; i < rowSize; i++)
         {
-            Instantiate(tilePrefab, startingPosition + new Vector3(i, 0, currentRow), Quaternion.identity);
+            GameObject instancedTile = Instantiate(tilePrefab, startingPosition + new Vector3(i, 0, currentRow), Quaternion.identity);
+            if (Random.value < topperChance)
+            {
+                TILE_TOP randomTopper = (TILE_TOP)Random.Range(0, 4);
+                instancedTile.GetComponent<TileComponent>().SetTopper(randomTopper);
+            }
         }
+
         currentRow++;
     }
 
