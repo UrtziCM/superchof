@@ -6,32 +6,46 @@ public class LifeComponent : MonoBehaviour
     [SerializeField] 
     private float timeToLive = 15f;
 
-    [SerializeField]
-    private float timeRecover;
-
     void Update()
     {
         timeToLive -= Time.deltaTime;
         if (timeToLive <= 0)
         {
-            TimeKill();
+            DieMolten();
         }
     }
 
-    private void TimeKill()
+    public void DieMolten() 
     {
-        //Animacion de morir por tiempo
+        //Animacion
         GameManager.Instance.GameEnd();
     }
 
-    public void RedKill() 
+    public void DieGrill()
     {
-        //Animacion de morir por casilla
+        //Animacion
         GameManager.Instance.GameEnd();
     }
 
-    public void PickIceCube() 
+    public void DieSunlight()
     {
-        timeToLive = timeToLive + timeRecover;
+        //Animacion
+        GameManager.Instance.GameEnd();
+    }
+
+    public void DieCoffee()
+    {
+        //Animacion
+        GameManager.Instance.GameEnd();
+    }
+
+    public void DieSteam()
+    {
+        //Animacion
+        GameManager.Instance.GameEnd();
+    }
+    public void AddTimeToLive(int time) 
+    {
+
     }
 }
