@@ -10,4 +10,14 @@ public class Score : MonoBehaviour
     {
         currentScore += points;
     }
+
+    public bool IsHighScore()
+    {
+        if (currentScore > GameManager.Instance.maxSaveScore)
+        {
+            GameManager.Instance.maxSaveScore = currentScore;
+            return true;
+        }
+        return false;
+    }
 }

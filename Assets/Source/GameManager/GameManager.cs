@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
     public bool gamePaused = false;
-    private int maxSaveScore;
+    public int maxSaveScore;
     private bool needTutorial;
 
 
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        if(IsHighScore())
+        if(ScoreManagerInstance.IsHighScore())
         {
            //Pantalla de nuevo record
         }
@@ -103,16 +103,6 @@ public class GameManager : MonoBehaviour
     {
         //Llama a la generacion de inicio que es el tutorial
         PlayerPrefs.SetInt("tutorial", 1);
-    }
-
-    private bool IsHighScore()
-    {
-        if (ScoreManagerInstance.currentScore > maxSaveScore)
-        {
-            maxSaveScore = ScoreManagerInstance.currentScore;
-            return true;
-        }
-        return false;
     }
 
     public void AddScore()
