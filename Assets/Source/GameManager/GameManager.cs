@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private float maxForwardPos;
 
 
-    private ScoreManager scoreManagerInstance = new();
+    public ScoreManager scoreManagerInstance = new();
 
     private BoardGenerator boardGenerator;
 
