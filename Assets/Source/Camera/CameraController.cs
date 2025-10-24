@@ -24,9 +24,9 @@ public class CameraController : MonoBehaviour
     {
         Vector3 cameraFollow = Vector3.zero;
 
-        if (target.position.x < 0)
+        if (target.position.x < -1)
         {
-            cameraFollow = new Vector3(0, 5, target.position.z);
+            cameraFollow = new Vector3(-1, 5, target.position.z);
         }
         else if(target.position.x > 3)
         {
