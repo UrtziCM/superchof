@@ -30,6 +30,11 @@ public class TileComponent : MonoBehaviour
     [SerializeField]
     private GameObject[] toppers = new GameObject[6];
 
+    public TILE_TOP GetTileTop()
+    {
+        return TileTop;
+    }
+
     public bool IsTraversable()
     {
         return TileTop > TILE_TOP.TONGS;
