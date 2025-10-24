@@ -14,6 +14,9 @@ public class BoardGenerator : MonoBehaviour
     [SerializeField]
     private float grillChance = 0.075f;
 
+    [SerializeField]
+    private float iceCubeChance = 0.08f;
+
 
     [SerializeField]
     private GameObject _tilePrefab;
@@ -44,6 +47,10 @@ public class BoardGenerator : MonoBehaviour
             else if (randomValue < grillChance)
             {
                 instancedTile.GetComponent<TileComponent>().SetTopper(TILE_TOP.GRILL);
+            }
+            else if (randomValue < iceCubeChance)
+            {
+                instancedTile.GetComponent<TileComponent>().SetTopper(TILE_TOP.ICE_CUBE);
             }
         }
 
