@@ -34,6 +34,11 @@ public class TileComponent : MonoBehaviour
     {
         return TileTop;
     }
+    public void SetTileTop(TILE_TOP tile_top)
+    {
+        TileTop = tile_top;
+        UpdateCurrentTopper();
+    }
 
     public bool IsTraversable()
     {
@@ -56,18 +61,20 @@ public class TileComponent : MonoBehaviour
 
     }
 
-    private void UpdateCurrentTopper() {
+    private void UpdateCurrentTopper()
+    {
         for (int i = 0; i < toppers.Length; i++)
         {
             if (toppers[i] != null)
                 toppers[i].SetActive(false);
         }
 
-        if ( (byte) TileTop < toppers.Length)
+        if ((byte)TileTop < toppers.Length)
             toppers[(int)TileTop].SetActive(true);
     }
 
-    public void SetTopper(TILE_TOP topper) {
+    public void SetTopper(TILE_TOP topper)
+    {
         TileTop = topper;
         UpdateCurrentTopper();
     }
