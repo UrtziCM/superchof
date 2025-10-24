@@ -66,7 +66,11 @@ public class PlayerController : MonoBehaviour
                 {
                     case TILE_TOP.GRILL:
                         lifeComponentInstance.DieGrill();
-                    break;
+                        break;
+                    case TILE_TOP.ICE_CUBE:
+                        lifeComponentInstance.AddTimeToLive();
+                        tile.SetTileTop(TILE_TOP.NONE);
+                        break;
                 }
             }
         }

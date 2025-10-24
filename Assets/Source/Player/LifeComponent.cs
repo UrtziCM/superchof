@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class LifeComponent : MonoBehaviour
 {
-    [SerializeField] 
     public float timeToLive = 10f;
 
     void Update()
@@ -46,6 +45,10 @@ public class LifeComponent : MonoBehaviour
     }
     public void AddTimeToLive(int time = 4) 
     {
-
+        timeToLive += time;
+        if (timeToLive > 10)
+        {
+            timeToLive = 10;
+        }
     }
 }
