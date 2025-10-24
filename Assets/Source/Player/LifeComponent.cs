@@ -4,7 +4,7 @@ using UnityEngine;
 public class LifeComponent : MonoBehaviour
 {
     [SerializeField] 
-    public float timeToLive = 15f;
+    public float timeToLive = 10f;
 
     void Update()
     {
