@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BoardGenerator : MonoBehaviour
 {
     [SerializeField]
     private Vector3 startingPosition;
-    [SerializeField]
+    
     private byte rowSize = 9;
 
     [SerializeField]
@@ -14,16 +15,9 @@ public class BoardGenerator : MonoBehaviour
     private float grillChance = 0.075f;
 
 
-
-    private GameObject tilePrefab;
+    [SerializeField]
+    private GameObject _tilePrefab;
     private uint currentRow = 0;
-
-
-    public BoardGenerator(Vector3 startingPosition, GameObject tilePrefab)
-    {
-        this.startingPosition = startingPosition;
-        this.tilePrefab = tilePrefab;
-    }
 
     void Start()
     {
@@ -40,7 +34,7 @@ public class BoardGenerator : MonoBehaviour
     {
         for (int i = 0; i < rowSize; i++)
         {
-            GameObject instancedTile = Instantiate(tilePrefab, startingPosition + new Vector3(i, 0, currentRow), Quaternion.identity);
+            GameObject instancedTile = Instantiate(_tilePrefab, startingPosition + new Vector3(i, 0, currentRow), Quaternion.identity);
             float randomValue = Random.value;
             if (randomValue < topperChance)
             {
@@ -56,5 +50,13 @@ public class BoardGenerator : MonoBehaviour
         currentRow++;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        for (int i = 0;i < rowSize;i++)
+        {
+            Gizmos.DrawWireCube(startingPosition + Vector3.right * i + Vector3.down, Vector3.one);
+        } 
+    }
 
 }

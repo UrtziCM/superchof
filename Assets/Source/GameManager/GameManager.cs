@@ -6,10 +6,8 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject tilePrefab;
-
-    [SerializeField]
     GameObject player;
+
 
     private static GameManager instance;
     public bool gamePaused = false;
@@ -19,6 +17,7 @@ public class GameManager : MonoBehaviour
 
 
     private ScoreManager scoreManagerInstance = new();
+
     private BoardGenerator boardGenerator;
 
     public static GameManager Instance
@@ -39,7 +38,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        boardGenerator = new BoardGenerator(Vector3.zero + Vector3.left * 4, tilePrefab);
+        boardGenerator = GetComponent<BoardGenerator>();
+
         for (int i = 0; i < 20; i++)
         {
             boardGenerator.GenerateRow();
@@ -129,4 +129,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Score", maxSaveScore);
         PlayerPrefs.Save();
     }
+
+
 }

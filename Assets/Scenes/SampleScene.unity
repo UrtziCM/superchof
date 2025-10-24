@@ -534,6 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1079153447}
   - component: {fileID: 1079153446}
+  - component: {fileID: 1079153448}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -553,7 +554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8d32227c779aa49bcc2d1efa2030e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 1442242457163756179, guid: f5a82ba913027ae4bb4489668adc2532, type: 3}
   player: {fileID: 299711592}
   gamePaused: 0
   maxSaveScore: 0
@@ -572,6 +572,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1079153448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079153445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef2e7bbcef3d38419327780c7c3b728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {x: -4, y: 0, z: 0}
+  rowSize: 9
+  topperChance: 0.05
+  grillChance: 0.075
+  _tilePrefab: {fileID: 1442242457163756179, guid: f5a82ba913027ae4bb4489668adc2532, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
