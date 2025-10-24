@@ -5,7 +5,6 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Transform target;
 
-    private Vector3 offSet = new Vector3(0, 5, 0);
     public float smoothTime = 0.5f;
 
     Vector3 currentVelocity;
@@ -23,14 +22,27 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        //transform.position = target.position +  offSet;
+        Vector3 cameraFollow = Vector3.zero;
+
+        if (target.position.x < 0)
+        {
+            cameraFollow = new Vector3(0, 5, target.position.z);
+        }
+        else if(target.position.x > 3)
+        {
+            cameraFollow = new Vector3(3, 5, target.position.z);
+        }
+        else
+        {
+            cameraFollow = new Vector3(target.position.x,5, target.position.z);
+        }
 
         transform.position = Vector3.SmoothDamp(
-            transform.position,
-            target.position + offSet,
-            ref currentVelocity,
-            smoothTime
-        );
+                transform.position,
+                cameraFollow,
+                ref currentVelocity,
+                smoothTime
+            );
     }
 
 
