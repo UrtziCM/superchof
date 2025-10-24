@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
@@ -56,10 +57,6 @@ public class GameManager : MonoBehaviour
 
 
     }
-
-
-
-
     public GameObject currentInteractror { get; set; }
 
     public void GameStart()
@@ -100,7 +97,7 @@ public class GameManager : MonoBehaviour
             SaveData();
         }
         //End
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private bool IsMaxForward()
