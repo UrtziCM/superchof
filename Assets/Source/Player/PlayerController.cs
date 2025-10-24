@@ -10,9 +10,13 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    private LifeComponent lifeComponentInstance;
+
     private void Start()
     {
         targetPosition = transform.position;
+
+        lifeComponentInstance = GetComponent<LifeComponent>();
     }
 
     public void MoveForward(InputAction.CallbackContext callbackContext)
@@ -58,6 +62,12 @@ public class PlayerController : MonoBehaviour
             if (tile != null && tile.IsTraversable())
             {
                 transform.position = tile.attachPosition;
+                switch (tile.GetTileTop())
+                {
+                    case TILE_TOP.GRILL:
+                        lifeComponentInstance.DieGrill();
+                    break;
+                }
             }
         }
     }
