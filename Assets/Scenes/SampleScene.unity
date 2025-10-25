@@ -127,6 +127,122 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: f9efa7b1-eb74-41ce-8b54-545d4214acf8
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 3efa475d-5b28-4bae-8eed-1a0ac7402470
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Player/Tap
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Player/Swipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 299711598}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 299711598}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Tap
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Swipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 691999099623006393, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: press.m_Name
+      value: Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: position.m_Name
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: press.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: position.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: press.m_SingletonActionBindings.Array.data[0].m_Id
+      value: e7be02f0-22c7-43fb-8164-e7b9801935dc
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: press.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Touchscreen>/Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: position.m_SingletonActionBindings.Array.data[0].m_Id
+      value: eb0c7d41-63dd-4ef4-b49d-7104853bdf26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: press.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: position.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Touchscreen>/delta
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      propertyPath: position.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Position
+      objectReference: {fileID: 0}
     - target: {fileID: 4693420097246813853, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -202,6 +318,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToLive: 10
+--- !u!114 &299711598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+  m_PrefabInstance: {fileID: 299711591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299711592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585f4afc4370c24448f78fbdaef96014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

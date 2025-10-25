@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,50 +9,57 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
-    private Vector3 targetPosition;
-
     private LifeComponent lifeComponentInstance;
+
+    private const float MINIMUM_SWIPE_MAGNITUDE = 5f;
+
+    [SerializeField]
+    private InputAction position, press;
+
+    private Vector2 initialPos;
+    private Vector2 currentPos => position.ReadValue<Vector2>();
+
+    private void Awake()
+    {
+        position.Enable();
+        press.Enable();
+        press.performed += _callbackContext => { initialPos = currentPos; };
+        press.canceled += _callbackContext => { DetectSwipe(); };
+    }
 
     private void Start()
     {
-        targetPosition = transform.position;
-
         lifeComponentInstance = GetComponent<LifeComponent>();
     }
 
-    public void MoveForward(InputAction.CallbackContext callbackContext)
+    private void DetectSwipe()
     {
-        if (callbackContext.performed)
+        Vector2 delta = (currentPos - initialPos);
+        Vector2 direction = Vector2.zero;
+        if (Math.Abs(delta.x) > MINIMUM_SWIPE_MAGNITUDE && Math.Abs(delta.x) > Math.Abs(delta.y))
         {
-            CheckAndMove(Vector3.forward);
-            GameManager.Instance.TryAddScore();
+            direction.x = delta.x > 0 ? 1 : -1;
         }
+        else if (Math.Abs(delta.y) > MINIMUM_SWIPE_MAGNITUDE)
+        {
+            direction.y = delta.y > 0? 1 : -1;
+
+
+        }
+        Debug.Log(direction);
+        direction = direction.normalized;
+        Vector3 threeDirection = new(direction.x, 0, direction.y);
+        CheckAndMove(threeDirection);
     }
 
-    public void MoveBack(InputAction.CallbackContext callbackContext)
-    {
-        if (callbackContext.performed)
-        {
-            CheckAndMove(Vector3.back);
-        }
-    }
-
-    public void MoveLeft(InputAction.CallbackContext callbackContext)
-    {
-        if (callbackContext.performed)
-        {
-            CheckAndMove(Vector3.left);
-        }
-    }
-
-    public void MoveRight(InputAction.CallbackContext callbackContext)
-    {
-        if (callbackContext.performed)
-        {
-            CheckAndMove(Vector3.right);
-        }
-    }
-
+    //public void Tap(InputAction.CallbackContext callbackContext)
+    //{
+    //    if (callbackContext.canceled)
+    //    {
+    //        CheckAndMove(Vector3.forward);
+    //        GameManager.Instance.TryAddScore();
+    //    }
+    //}
     private void CheckAndMove(Vector3 direction)
     {
         Vector3 boxPos = transform.position + direction;
