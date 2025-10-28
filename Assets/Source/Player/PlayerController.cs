@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
                         tile.SetTileTop(TILE_TOP.NONE);
                         break;
                 }
+                transform.SetParent(tile.transform);
             }
         }
     }
