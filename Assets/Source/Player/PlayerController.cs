@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
         targetPosition = transform.position;
 
         lifeComponentInstance = GetComponent<LifeComponent>();
+        lifeComponentInstance.debugIsInvincible = debugIsInvincible;
     }
 
     public void MoveForward(InputAction.CallbackContext callbackContext)
