@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
       propertyPath: debugIsInvincible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4693420097246813853, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -594,6 +594,10 @@ MonoBehaviour:
   grillChance: 0.075
   iceCubeChance: 0.08
   _tilePrefab: {fileID: 1442242457163756179, guid: f5a82ba913027ae4bb4489668adc2532, type: 3}
+  commonRowPrefabs: []
+  steamRowPrefabs: []
+  sunlightRowPrefabs: []
+  coffeeRowPrefabs: []
 --- !u!1001 &1795576382
 PrefabInstance:
   m_ObjectHideFlags: 0
