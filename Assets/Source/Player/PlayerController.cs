@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+    [SerializeField]
+    private bool debugIsInvincible = false;
+
     private Vector3 targetPosition;
 
     private LifeComponent lifeComponentInstance;

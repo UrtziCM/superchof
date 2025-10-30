@@ -5,10 +5,12 @@ public class LifeComponent : MonoBehaviour
 {
     public float timeToLive = 10f;
 
+    public bool debugIsInvincible = false;
+
     void Update()
     {
         timeToLive -= Time.deltaTime;
-        if (timeToLive <= 0)
+        if (timeToLive <= 0 && !debugIsInvincible)
         {
             DieMolten();
         }
