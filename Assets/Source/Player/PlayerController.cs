@@ -75,6 +75,10 @@ public class PlayerController : MonoBehaviour
                         lifeComponentInstance.AddTimeToLive();
                         tile.SetTileTop(TILE_TOP.NONE);
                         break;
+                    case TILE_TOP.COFFEE:
+                        if (!(transform.GetComponentInParent<MovingTileComponent>() != null))
+                            lifeComponentInstance.DieCoffee();
+                        break;
                 }
                 transform.SetParent(tile.transform);
             }
