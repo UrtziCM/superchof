@@ -1,8 +1,14 @@
-using Unity.VisualScripting;
 using UnityEngine;
-
+using System.Collections.Generic;
 public class BoardGenerator : MonoBehaviour
 {
+    [System.Serializable]
+    internal class Row
+    {
+        public GameObject rowPrefab;
+        public int zSize = 1;
+    }
+
     [SerializeField]
     private Vector3 startingPosition;
     
@@ -22,6 +28,18 @@ public class BoardGenerator : MonoBehaviour
     private GameObject _tilePrefab;
     private uint currentRow = 0;
 
+    [Header("Rows")]
+    [SerializeField]
+    private List<Row> commonRowPrefabs = new();
+    [SerializeField]
+    private List<Row> steamRowPrefabs = new();
+    [SerializeField]
+    private List<Row> sunlightRowPrefabs = new();
+    [SerializeField]
+    private List<Row> coffeeRowPrefabs = new();
+
+
+
     void Start()
     {
 
@@ -38,10 +56,10 @@ public class BoardGenerator : MonoBehaviour
         for (int i = 0; i < rowSize; i++)
         {
             GameObject instancedTile = Instantiate(_tilePrefab, startingPosition + new Vector3(i, 0, currentRow), Quaternion.identity);
-            float randomValue = Random.value;
+            float randomValue = UnityEngine.Random.value;
             if (randomValue < topperChance)
             {
-                TILE_TOP randomTopper = (TILE_TOP)Random.Range(0, 4);
+                TILE_TOP randomTopper = (TILE_TOP)UnityEngine.Random.Range(0, 4);
                 instancedTile.GetComponent<TileComponent>().SetTopper(randomTopper);
             }
             else if (randomValue < grillChance)
