@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public enum TILE_TOP : byte
@@ -46,9 +47,9 @@ public class TileComponent : MonoBehaviour
         return TileTop > TILE_TOP.TONGS;
     }
 
-    private void OnValidate()
+    private void OnBecameVisible()
     {
-        //UpdateCurrentTopper();
+        UpdateCurrentTopper();
     }
 
     void Start()
@@ -84,6 +85,7 @@ public class TileComponent : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(attachPosition, Vector3.one * .25f);
+        Gizmos.DrawCube(transform.position + attachPosition, Vector3.one * .25f);
+        UpdateCurrentTopper();
     }
 }

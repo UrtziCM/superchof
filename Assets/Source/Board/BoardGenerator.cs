@@ -1,36 +1,66 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+
+
+public enum ROW_TYPE
+{
+    COMMON,
+    ICE,
+    STEAM,
+    SUNLIGHT,
+    COFFEE
+}
 public class BoardGenerator : MonoBehaviour
 {
+    [System.Serializable]
+    internal struct RowType
+    {
+        [SerializeField]
+        private ROW_TYPE type;
+        [SerializeField]
+        [Range(0f, 1f)]
+        public float probability;
+
+    }
     [System.Serializable]
     internal class Row
     {
         public GameObject rowPrefab;
-        public int zSize = 1;
+        [Range(1, 10)]
+        public uint zSize = 1;
     }
 
     [SerializeField]
     private Vector3 startingPosition;
-    
+
     private byte rowSize = 9;
 
-    [SerializeField]
-    private float topperChance = 0.05f;
-
-    [SerializeField]
-    private float grillChance = 0.075f;
-
-    [SerializeField]
-    private float iceCubeChance = 0.08f;
-
-
-    [SerializeField]
-    private GameObject _tilePrefab;
+    //[SerializeField]
+    //[Range(0,1)]
+    //private float commonRowChance = 0.05f;
+    //[SerializeField]
+    //[Range(0,1)]
+    //private float iceRowChance = 0.075f;
+    //[SerializeField]
+    //[Range(0,1)]
+    //private float steamRowChance = 0.08f;
+    //[SerializeField]
+    //[Range(0, 1)]
+    //private float sunlightRowChance;
     private uint currentRow = 0;
+
+
+    [Header("Row types and probabilites")]
+    [SerializeField]
+    private List<RowType> rowProbabilities;
+
 
     [Header("Rows")]
     [SerializeField]
     private List<Row> commonRowPrefabs = new();
+    [SerializeField]
+    private List<Row> iceRowPrefabs = new();
     [SerializeField]
     private List<Row> steamRowPrefabs = new();
     [SerializeField]
@@ -42,7 +72,7 @@ public class BoardGenerator : MonoBehaviour
 
     void Start()
     {
-
+        rowProbabilities.Sort((a,b) => { return (int)(a.probability - (b).probability); });
     }
 
     // Update is called once per frame
@@ -51,37 +81,59 @@ public class BoardGenerator : MonoBehaviour
 
     }
 
-    public void GenerateRow()
+
+    /// <summary>
+    /// Generates a row in the next position in the world.
+    /// </summary>
+    public void GenerateRow(ROW_TYPE row = ROW_TYPE.COMMON)
     {
-        for (int i = 0; i < rowSize; i++)
+        Row thisRow = null;
+        switch (row)
         {
-            GameObject instancedTile = Instantiate(_tilePrefab, startingPosition + new Vector3(i, 0, currentRow), Quaternion.identity);
-            float randomValue = UnityEngine.Random.value;
-            if (randomValue < topperChance)
-            {
-                TILE_TOP randomTopper = (TILE_TOP)UnityEngine.Random.Range(0, 4);
-                instancedTile.GetComponent<TileComponent>().SetTopper(randomTopper);
-            }
-            else if (randomValue < grillChance)
-            {
-                instancedTile.GetComponent<TileComponent>().SetTopper(TILE_TOP.GRILL);
-            }
-            else if (randomValue < iceCubeChance)
-            {
-                instancedTile.GetComponent<TileComponent>().SetTopper(TILE_TOP.ICE_CUBE);
-            }
+            case ROW_TYPE.COMMON:
+                thisRow = commonRowPrefabs[Random.Range(0, commonRowPrefabs.Count)];
+                break;
+            case ROW_TYPE.ICE:
+                thisRow = commonRowPrefabs[Random.Range(0, iceRowPrefabs.Count)];
+                break;
+            case ROW_TYPE.STEAM:
+                thisRow = commonRowPrefabs[Random.Range(0, steamRowPrefabs.Count)];
+                break;
+            case ROW_TYPE.SUNLIGHT:
+                thisRow = commonRowPrefabs[Random.Range(0, sunlightRowPrefabs.Count)];
+                break;
+            case ROW_TYPE.COFFEE:
+                thisRow = commonRowPrefabs[Random.Range(0, coffeeRowPrefabs.Count)];
+                break;
         }
 
-        currentRow++;
+        if (thisRow != null)
+        {
+            Instantiate(thisRow.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
+            currentRow += thisRow.zSize;
+        }
+
+
     }
+
+    public void GenerateRandomRow()
+    {
+        GenerateRow(ROW_TYPE.COMMON);
+        float rndGenerationFloat = Random.value;
+        foreach (RowType probability in rowProbabilities)
+        {
+
+        }
+    }
+
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        for (int i = 0;i < rowSize;i++)
+        for (int i = 0; i < rowSize; i++)
         {
             Gizmos.DrawWireCube(startingPosition + Vector3.right * i + Vector3.down, Vector3.one);
-        } 
+        }
     }
 
 }

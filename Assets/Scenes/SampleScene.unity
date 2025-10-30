@@ -594,7 +594,12 @@ MonoBehaviour:
   grillChance: 0.075
   iceCubeChance: 0.08
   _tilePrefab: {fileID: 1442242457163756179, guid: f5a82ba913027ae4bb4489668adc2532, type: 3}
-  commonRowPrefabs: []
+  commonRowPrefabs:
+  - rowPrefab: {fileID: 8981494858646154709, guid: cafcf5d9ef07a8942ab5aa6e466ee89a, type: 3}
+    zSize: 1
+  iceRowPrefabs:
+  - rowPrefab: {fileID: 8950184074317477391, guid: 975dca5b77eed914ca8c944b770629f9, type: 3}
+    zSize: 1
   steamRowPrefabs: []
   sunlightRowPrefabs: []
   coffeeRowPrefabs: []

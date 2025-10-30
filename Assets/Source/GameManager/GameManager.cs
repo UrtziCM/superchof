@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         if (IsMaxForward())
         {
             scoreManagerInstance.AddPoints();
-            boardGenerator.GenerateRow();
+            boardGenerator.GenerateRandomRow();
         }
     }
     private void SaveData()
