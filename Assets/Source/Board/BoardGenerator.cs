@@ -40,18 +40,6 @@ public class BoardGenerator : MonoBehaviour
 
     private byte rowSize = 9;
 
-    //[SerializeField]
-    //[Range(0,1)]
-    //private float commonRowChance = 0.05f;
-    //[SerializeField]
-    //[Range(0,1)]
-    //private float iceRowChance = 0.075f;
-    //[SerializeField]
-    //[Range(0,1)]
-    //private float steamRowChance = 0.08f;
-    //[SerializeField]
-    //[Range(0, 1)]
-    //private float sunlightRowChance;
     private uint currentRow = 0;
 
 
@@ -76,7 +64,7 @@ public class BoardGenerator : MonoBehaviour
 
     void Start()
     {
-        rowProbabilities.Sort((a, b) => { return (int)(a.probability - (b).probability); });
+        rowProbabilities.Sort((a, b) => { return b.probability.CompareTo(a.probability); });
     }
 
     private void OnValidate()
@@ -136,12 +124,18 @@ public class BoardGenerator : MonoBehaviour
 
     public void GenerateRandomRow()
     {
-        GenerateRow(ROW_TYPE.COMMON);
         float rndGenerationFloat = Random.value;
-        foreach (RowType probability in rowProbabilities)
+        float sumProbability = 0f;
+        foreach (RowType rowType in rowProbabilities)
         {
-
+            if (rndGenerationFloat < sumProbability + rowType.probability)
+            {
+                GenerateRow(rowType.type);
+                return;
+            }
+            sumProbability += rowType.probability;
         }
+        Debug.LogWarning("Nothing spawned");
     }
 
 
