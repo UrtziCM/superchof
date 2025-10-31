@@ -76,7 +76,8 @@ public class BoardGenerator : MonoBehaviour
 
     void Start()
     {
-        rowProbabilities.Sort((a,b) => { return (int)(a.probability - (b).probability); });
+        rowProbabilities.Sort((a, b) => { return (int)(a.probability - (b).probability); });
+    }
 
     private void OnValidate()
     {
