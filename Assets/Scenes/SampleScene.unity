@@ -590,10 +590,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingPosition: {x: -4, y: 0, z: 0}
-  topperChance: 0.05
-  grillChance: 0.075
-  iceCubeChance: 0.08
-  _tilePrefab: {fileID: 1442242457163756179, guid: f5a82ba913027ae4bb4489668adc2532, type: 3}
+  rowProbabilities:
+  - type: 0
+    probability: 0
+  - type: 1
+    probability: 0
+  - type: 2
+    probability: 0
+  - type: 3
+    probability: 0
+  - type: 4
+    probability: 0
   commonRowPrefabs:
   - rowPrefab: {fileID: 8981494858646154709, guid: cafcf5d9ef07a8942ab5aa6e466ee89a, type: 3}
     zSize: 1
