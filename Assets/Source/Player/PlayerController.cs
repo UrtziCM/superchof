@@ -79,6 +79,9 @@ public class PlayerController : MonoBehaviour
                         if (!(transform.GetComponentInParent<MovingTileComponent>() != null))
                             lifeComponentInstance.DieCoffee();
                         break;
+                    case TILE_TOP.STEAM:
+                        lifeComponentInstance.DieSteam();
+                        break;
                 }
                 transform.SetParent(tile.transform);
             }
