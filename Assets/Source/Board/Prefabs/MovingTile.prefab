@@ -163,7 +163,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   SPEED: 2
-  maxDistance: 14
+  resetPosition: {x: 0, y: 0, z: 0}
+  maxX: 6
+  minX: 2
+  goingLeft: 0
 --- !u!4 &8422472506680179994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1379813224369130174, guid: f5a82ba913027ae4bb4489668adc2532, type: 3}

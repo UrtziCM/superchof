@@ -31,7 +31,7 @@ public class BoardGenerator : MonoBehaviour
     internal class Row
     {
         public GameObject rowPrefab;
-        [Range(1, 10)]
+        [Range(1, 20)]
         public uint zSize = 1;
     }
 

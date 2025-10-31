@@ -592,9 +592,9 @@ MonoBehaviour:
   startingPosition: {x: -4, y: 0, z: 0}
   rowProbabilities:
   - type: 0
-    probability: 0
+    probability: 0.9
   - type: 1
-    probability: 0
+    probability: 0.1
   - type: 2
     probability: 0
   - type: 3
