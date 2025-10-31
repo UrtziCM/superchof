@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 
 public enum ROW_TYPE
@@ -17,10 +16,15 @@ public class BoardGenerator : MonoBehaviour
     internal struct RowType
     {
         [SerializeField]
-        private ROW_TYPE type;
+        public ROW_TYPE type;
         [SerializeField]
         [Range(0f, 1f)]
         public float probability;
+        public RowType(ROW_TYPE type, float probability)
+        {
+            this.type = type;
+            this.probability = probability;
+        }
 
     }
     [System.Serializable]
@@ -73,6 +77,19 @@ public class BoardGenerator : MonoBehaviour
     void Start()
     {
         rowProbabilities.Sort((a,b) => { return (int)(a.probability - (b).probability); });
+
+    private void OnValidate()
+    {
+        float rowWeightSum = 0f;
+        foreach (var row in rowProbabilities)
+        {
+            rowWeightSum += row.probability;
+
+        }
+        if (rowWeightSum > 1f)
+        {
+            Debug.LogError($"BoardGenerator: Composite probability > 1.0 ({rowWeightSum})");
+        }
     }
 
     // Update is called once per frame
@@ -94,16 +111,16 @@ public class BoardGenerator : MonoBehaviour
                 thisRow = commonRowPrefabs[Random.Range(0, commonRowPrefabs.Count)];
                 break;
             case ROW_TYPE.ICE:
-                thisRow = commonRowPrefabs[Random.Range(0, iceRowPrefabs.Count)];
+                thisRow = iceRowPrefabs[Random.Range(0, iceRowPrefabs.Count)];
                 break;
             case ROW_TYPE.STEAM:
-                thisRow = commonRowPrefabs[Random.Range(0, steamRowPrefabs.Count)];
+                thisRow = steamRowPrefabs[Random.Range(0, steamRowPrefabs.Count)];
                 break;
             case ROW_TYPE.SUNLIGHT:
-                thisRow = commonRowPrefabs[Random.Range(0, sunlightRowPrefabs.Count)];
+                thisRow = sunlightRowPrefabs[Random.Range(0, sunlightRowPrefabs.Count)];
                 break;
             case ROW_TYPE.COFFEE:
-                thisRow = commonRowPrefabs[Random.Range(0, coffeeRowPrefabs.Count)];
+                thisRow = coffeeRowPrefabs[Random.Range(0, coffeeRowPrefabs.Count)];
                 break;
         }
 
