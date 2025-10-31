@@ -111,13 +111,14 @@ public class BoardGenerator : MonoBehaviour
             case ROW_TYPE.COFFEE:
                 thisRow = coffeeRowPrefabs[Random.Range(0, coffeeRowPrefabs.Count)];
                 break;
+            default:
+                thisRow = commonRowPrefabs[Random.Range(0, commonRowPrefabs.Count)];
+                break;
         }
 
-        if (thisRow != null)
-        {
-            Instantiate(thisRow.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
-            currentRow += thisRow.zSize;
-        }
+        Instantiate(thisRow?.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
+        currentRow += thisRow.zSize;
+        Debug.Log(currentRow);
 
 
     }

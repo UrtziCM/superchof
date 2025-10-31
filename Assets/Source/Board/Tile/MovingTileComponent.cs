@@ -5,9 +5,6 @@ public class MovingTileComponent : TileComponent
     [SerializeField]
     [Range(0f, 5f)]
     private float SPEED = 2f;
-
-
-
     [SerializeField]
     private Vector3 resetPosition;
     [SerializeField]
@@ -54,11 +51,7 @@ public class MovingTileComponent : TileComponent
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + Vector3.right * minX, .25f);
-        Gizmos.DrawWireSphere(transform.position + Vector3.right * maxX, .25f);
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + resetPosition, Vector3.one);
-
     }
 }
