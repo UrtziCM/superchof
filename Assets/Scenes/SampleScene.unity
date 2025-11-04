@@ -621,11 +621,11 @@ MonoBehaviour:
     zSize: 1
   steamRowPrefabs:
   - rowPrefab: {fileID: 8981494858646154709, guid: 7511c4949e136334fb752205e4e4ecf0, type: 3}
-    zSize: 0
+    zSize: 1
   sunlightRowPrefabs: []
   coffeeRowPrefabs:
   - rowPrefab: {fileID: 6175775989412150408, guid: fae440063dbc39248992a6b35d0eaf23, type: 3}
-    zSize: 0
+    zSize: 1
   - rowPrefab: {fileID: 6175775989412150408, guid: e121ca4d7b2ded84cbe801ab8af0f8bc, type: 3}
     zSize: 2
   - rowPrefab: {fileID: 6175775989412150408, guid: de8e34b59dfb782459830f3f873587d0, type: 3}
