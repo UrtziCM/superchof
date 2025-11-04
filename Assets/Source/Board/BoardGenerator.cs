@@ -118,7 +118,7 @@ public class BoardGenerator : MonoBehaviour
                 thisRow = commonRowPrefabs[Random.Range(0, commonRowPrefabs.Count)];
                 break;
         }
-        Instantiate(thisRow.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
+        Instantiate(thisRow?.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
         currentRow += thisRow.zSize;
 
 
