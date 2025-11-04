@@ -31,6 +31,7 @@ public class BoardGenerator : MonoBehaviour
     internal class Row
     {
         public GameObject rowPrefab;
+        [SerializeField]
         [Range(1, 20)]
         public uint zSize = 1;
     }
@@ -50,15 +51,15 @@ public class BoardGenerator : MonoBehaviour
 
     [Header("Rows")]
     [SerializeField]
-    private List<Row> commonRowPrefabs = new();
+    private List<Row> commonRowPrefabs;
     [SerializeField]
-    private List<Row> iceRowPrefabs = new();
+    private List<Row> iceRowPrefabs;
     [SerializeField]
-    private List<Row> steamRowPrefabs = new();
+    private List<Row> steamRowPrefabs;
     [SerializeField]
-    private List<Row> sunlightRowPrefabs = new();
+    private List<Row> sunlightRowPrefabs;
     [SerializeField]
-    private List<Row> coffeeRowPrefabs = new();
+    private List<Row> coffeeRowPrefabs;
 
 
 
@@ -79,6 +80,7 @@ public class BoardGenerator : MonoBehaviour
         {
             Debug.LogError($"BoardGenerator: Composite probability > 1.0 ({rowWeightSum})");
         }
+
     }
 
     // Update is called once per frame
@@ -94,6 +96,7 @@ public class BoardGenerator : MonoBehaviour
     public void GenerateRow(ROW_TYPE row = ROW_TYPE.COMMON)
     {
         Row thisRow = null;
+
         switch (row)
         {
             case ROW_TYPE.COMMON:
@@ -115,10 +118,8 @@ public class BoardGenerator : MonoBehaviour
                 thisRow = commonRowPrefabs[Random.Range(0, commonRowPrefabs.Count)];
                 break;
         }
-
-        Instantiate(thisRow?.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
+        Instantiate(thisRow.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
         currentRow += thisRow.zSize;
-        Debug.Log(currentRow);
 
 
     }
