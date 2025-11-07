@@ -16,6 +16,7 @@ public enum TILE_TOP : byte
     GRILL = 5,
     COFFEE = 6,
     STEAM = 7,
+    SUNLIGHT = 8,
 
     // Base
     NONE = 255,

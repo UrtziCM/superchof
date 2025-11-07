@@ -82,6 +82,9 @@ public class PlayerController : MonoBehaviour
                     case TILE_TOP.STEAM:
                         lifeComponentInstance.DieSteam();
                         break;
+                    case TILE_TOP.SUNLIGHT:
+                        lifeComponentInstance.DieSunlight();
+                        break;
                 }
                 transform.SetParent(tile.transform);
             }
