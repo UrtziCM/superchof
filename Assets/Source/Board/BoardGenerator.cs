@@ -12,6 +12,9 @@ public enum ROW_TYPE
 }
 public class BoardGenerator : MonoBehaviour
 {
+    private Queue<GameObject> _rowObjects = new();
+    [SerializeField]
+    private uint _maxLoadedRows;
     [System.Serializable]
     internal struct RowType
     {
@@ -118,10 +121,14 @@ public class BoardGenerator : MonoBehaviour
                 thisRow = commonRowPrefabs[Random.Range(0, commonRowPrefabs.Count)];
                 break;
         }
-        Instantiate(thisRow?.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
+        GameObject createdRows = Instantiate(thisRow.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
+
         currentRow += thisRow.zSize;
-
-
+        _rowObjects.Enqueue(createdRows);
+        if (_rowObjects.Count > _maxLoadedRows)
+        {
+            Destroy(_rowObjects.Dequeue());
+        }
     }
 
     public void GenerateRandomRow()
