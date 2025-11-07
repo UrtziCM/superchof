@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 100
   moveSpeed: 100
+  debugIsInvincible: 0
 --- !u!114 &691999099623006393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +191,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 6586577bb7a597c4d86d119e1a2d85d6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 92fe907b91680ee44971131c08e7a3fb, type: 2}
     - target: {fileID: 919132149155446097, guid: 6586577bb7a597c4d86d119e1a2d85d6, type: 3}
       propertyPath: m_Name
       value: Cubito
