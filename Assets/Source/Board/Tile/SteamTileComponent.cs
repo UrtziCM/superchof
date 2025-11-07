@@ -20,7 +20,7 @@ public class SteamTileManager : MonoBehaviour
     private GameObject[] pipes;
 
     [SerializeField]
-    private GameObject steamSpot;
+    private ParticleSystem steamParticle;
     void Start()
     {
         steamTimer = timeBetweenSteam;
@@ -42,8 +42,10 @@ public class SteamTileManager : MonoBehaviour
 
     private IEnumerator PipeSteam()
     {
+        steamParticle.Play();
         ToperToSteam();
         yield return new WaitForSeconds(steamActiveTime);
+        steamParticle.Stop();
         ToperToNone();
         steamTimer = timeBetweenSteam;
     }
