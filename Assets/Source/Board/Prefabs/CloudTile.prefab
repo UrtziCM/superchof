@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1379813224369130174}
   - component: {fileID: 6998478406790734849}
-  - component: {fileID: -3845398604012656464}
+  - component: {fileID: -1062257883346139644}
   m_Layer: 0
   m_Name: CloudTile
   m_TagString: Untagged
@@ -56,7 +56,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-3845398604012656464
+--- !u!114 &-1062257883346139644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,23 +65,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1442242457163756179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56740ab68b23165469a38360e21c2183, type: 3}
+  m_Script: {fileID: 11500000, guid: 0210644f8e3c4424da07620301ac415c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileTop: 255
-  attachPosition: {x: 0, y: 0, z: 0}
-  toppers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  SPEED: 2
-  resetPosition: {x: 0, y: 0, z: 0}
-  maxX: 9
-  minX: -1
+  SPEED: 3
   goingLeft: 0
+  resetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8915586964086041679
 GameObject:
   m_ObjectHideFlags: 0

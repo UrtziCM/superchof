@@ -13,7 +13,7 @@ public class SunBeamTileComponent : MonoBehaviour
     void Start()
     {
         RaycastHit hitFloor;
-        if (Physics.Raycast(transform.position + Vector3.up * 4, Vector3.down * 12, out hitFloor))
+        if (Physics.Raycast(transform.position - Vector3.up * 4, Vector3.down * 12, out hitFloor))
         {
             floorTile = hitFloor.transform;
         }
@@ -25,7 +25,7 @@ public class SunBeamTileComponent : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down * 12, out hit))
         {
             Transform Tilehit = hit.transform;
-            if (Tilehit.TryGetComponent<MovingTileComponent>(out MovingTileComponent component))
+            if (Tilehit.TryGetComponent<CloudTileComponent>(out CloudTileComponent component))
             {
                 floorTile.GetComponent<TileComponent>().SetTileTop(TILE_TOP.NONE);
                 floorTile.GetComponentInChildren<MeshRenderer>().material = whiteMaterial;
