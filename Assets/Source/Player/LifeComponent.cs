@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class LifeComponent : MonoBehaviour
 {
+    [SerializeField]
+    private HPCanvasHelper _hpCanvasHelper;
+
     public float timeToLive = 10f;
 
     public bool debugIsInvincible = false;
@@ -14,6 +17,7 @@ public class LifeComponent : MonoBehaviour
         {
             DieMolten();
         }
+        _hpCanvasHelper.SetProgress(timeToLive/10f);
     }
 
     public void DieMolten() 
