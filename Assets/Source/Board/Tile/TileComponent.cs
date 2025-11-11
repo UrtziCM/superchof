@@ -40,6 +40,10 @@ public class TileComponent : MonoBehaviour
     }
     public void SetTileTop(TILE_TOP tile_top)
     {
+        PlayerController plyController = transform.GetComponentInChildren<PlayerController>();
+        if (plyController != null)
+            plyController.CheckAndMove(Vector3.zero);
+
         TileTop = tile_top;
         UpdateCurrentTopper();
     }

@@ -15,11 +15,14 @@ public class LavaTileComponent : TileComponent
     void Update()
     {
         MovementCheckBox.enabled = true;
-        foreach (Collider col in Physics.OverlapBox(transform.position, Vector3.one * .25f))
+        SetTileTop(TILE_TOP.COFFEE);
+
+        foreach (Collider col in Physics.OverlapBox(attachPosition, Vector3.one * .25f))
         {
             if (col.GetComponent<MovingTileComponent>() != null)
             {
                 MovementCheckBox.enabled = false;
+                SetTileTop(TILE_TOP.NONE);
             }
         }
     }
