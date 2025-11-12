@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CheckAndMove(Vector3 direction)
+    private void CheckAndMove(Vector3 direction)
     {
         Vector3 boxPos = transform.position + direction;
         Collider[] hitCollider = Physics.OverlapBox(boxPos, transform.localScale * 0.25f, Quaternion.identity);
@@ -89,6 +89,11 @@ public class PlayerController : MonoBehaviour
                 transform.SetParent(tile.transform);
             }
         }
+    }
+
+    public void CheckCurrentPostition()
+    {
+        CheckAndMove(Vector3.zero);
     }
 
     void OnDrawGizmos()
