@@ -594,18 +594,40 @@ MonoBehaviour:
     zSize: 1
   - rowPrefab: {fileID: 8950184074317477391, guid: ddaaa73325ef18b4dbc9421287f7653c, type: 3}
     zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: 8c76600e7fef0db45b17d27d5f2e54bc, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: f3811f600148eb14ababd87267eeb353, type: 3}
+    zSize: 1
   - rowPrefab: {fileID: 8950184074317477391, guid: 4f945e197386df94b9524ecf9d8b0ad2, type: 3}
     zSize: 1
   - rowPrefab: {fileID: 8950184074317477391, guid: de2fa2af02aa4d745bf511a12cf39ea9, type: 3}
     zSize: 1
   - rowPrefab: {fileID: 8950184074317477391, guid: 8b63fafa5e96191499a523f6e5a9ed6d, type: 3}
     zSize: 1
-  - rowPrefab: {fileID: 8950184074317477391, guid: 8c76600e7fef0db45b17d27d5f2e54bc, type: 3}
+  - rowPrefab: {fileID: 8950184074317477391, guid: a22cabf3a79f7764f9f38088f82bb4e2, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: c6b6e55ec4bf03b40a7d1a89b3575abc, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: 465737399e045d34bb31a623d7de5129, type: 3}
     zSize: 1
   iceRowPrefabs:
   - rowPrefab: {fileID: 8950184074317477391, guid: 975dca5b77eed914ca8c944b770629f9, type: 3}
     zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: e05142cc192497949b5d8dfb3902dfc9, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: c2464307d2b42544fa65d7be01e4de86, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: 25a6432d927a2524695325e70f94b22e, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: 0aefba8c43e04754d88d63e22487a84d, type: 3}
+    zSize: 1
   - rowPrefab: {fileID: 8950184074317477391, guid: 6fcffc71bab15ae48b9d77208c023074, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: 9ba6543222c58b14f8b23e65425806b1, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: 39e290629010c2d409dea24a1a3267e9, type: 3}
+    zSize: 1
+  - rowPrefab: {fileID: 8950184074317477391, guid: e1fd067ef9b8df5429eda6e759a0366f, type: 3}
     zSize: 1
   steamRowPrefabs:
   - rowPrefab: {fileID: 8981494858646154709, guid: 7511c4949e136334fb752205e4e4ecf0, type: 3}
