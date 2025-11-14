@@ -47,6 +47,10 @@ public class MovingTileComponent : TileComponent
         if (transform.position.x > 4)
         {
             transform.position = resetPosition;
+            PlayerController p;
+            if ((p = GetComponentInChildren<PlayerController>()) != null) {
+                p.GetComponent<LifeComponent>().DieCoffee();
+            }
         }
     }
     private void OnDrawGizmosSelected()
