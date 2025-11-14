@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b446c6e061309e4fa291f4dac6b912d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hpCanvasHelper: {fileID: 1155289642}
   timeToLive: 10
   debugIsInvincible: 0
 --- !u!1 &330585543
@@ -589,6 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef2e7bbcef3d38419327780c7c3b728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxLoadedRows: 50
   startingPosition: {x: -4, y: 0, z: 0}
   rowProbabilities:
   - type: 0
@@ -632,6 +634,17 @@ MonoBehaviour:
     zSize: 3
   - rowPrefab: {fileID: 8950184074317477391, guid: eb02d7c8f51d38b4987506bcac268de8, type: 3}
     zSize: 3
+--- !u!114 &1155289642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6025551972388010752, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+  m_PrefabInstance: {fileID: 299711591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9acec559ba48f514e8ee950996bfc7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1795576382
 PrefabInstance:
   m_ObjectHideFlags: 0
