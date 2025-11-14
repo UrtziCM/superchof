@@ -5,26 +5,25 @@ public class CloudTileComponent : MonoBehaviour
 {
     [SerializeField]
     [Range(0f, 5f)]
-    private float SPEED = 2f;
-    [SerializeField]
-    private bool goingLeft = false;
+    private float secondsToMove = 0.2f;
+    private float time;
     [SerializeField]
     private Vector3 resetPosition;
 
     private void Start()
     {
         resetPosition = transform.TransformPoint(resetPosition);
+        time = 0f;
     }
 
     void Update()
     {
-        if (!goingLeft)
+        time += Time.deltaTime;
+
+        if (time >= secondsToMove)
         {
-            transform.position += SPEED * Time.deltaTime * Vector3.right;
-        }
-        else
-        {
-            transform.position += SPEED * Time.deltaTime * Vector3.left;
+            time = 0f;
+            transform.position += transform.right * 1;
         }
     }
     private void LateUpdate()

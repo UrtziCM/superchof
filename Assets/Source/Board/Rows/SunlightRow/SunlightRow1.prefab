@@ -455,8 +455,8 @@ Transform:
   - {fileID: 5719235937129141031}
   - {fileID: 5927195715260740643}
   - {fileID: 4796287577350137123}
-  - {fileID: 7490542455002171545}
   - {fileID: 7514872939153911702}
+  - {fileID: 7490542455002171545}
   - {fileID: 3820331908732774698}
   - {fileID: 5690920201533471333}
   - {fileID: 4786590913777659327}
@@ -666,6 +666,10 @@ PrefabInstance:
       propertyPath: resetPosition.x
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 748839065246562991, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
+      propertyPath: resetPosition.x
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 1379813224369130174, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -794,6 +798,10 @@ PrefabInstance:
       propertyPath: resetPosition.x
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 748839065246562991, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
+      propertyPath: resetPosition.x
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 1379813224369130174, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -836,7 +844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1442242457163756179, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
       propertyPath: m_Name
-      value: CloudTile (1)
+      value: CloudTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -857,6 +865,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4896383489011633120}
     m_Modifications:
     - target: {fileID: -1062257883346139644, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
+      propertyPath: resetPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 748839065246562991, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
       propertyPath: resetPosition.x
       value: -2
       objectReference: {fileID: 0}
@@ -1112,6 +1124,10 @@ PrefabInstance:
       propertyPath: resetPosition.x
       value: -8
       objectReference: {fileID: 0}
+    - target: {fileID: 748839065246562991, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
+      propertyPath: resetPosition.x
+      value: -8
+      objectReference: {fileID: 0}
     - target: {fileID: 1379813224369130174, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -1299,6 +1315,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4896383489011633120}
     m_Modifications:
     - target: {fileID: -1062257883346139644, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
+      propertyPath: resetPosition.x
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 748839065246562991, guid: 0f14870dc7b5dd94781b0b959e067137, type: 3}
       propertyPath: resetPosition.x
       value: -7
       objectReference: {fileID: 0}
