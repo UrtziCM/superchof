@@ -40,12 +40,15 @@ public class TileComponent : MonoBehaviour
     }
     public void SetTileTop(TILE_TOP tile_top)
     {
+        TileTop = tile_top;
         // If player is on this tile, check if tile update affects it.
         PlayerController plyController = transform.GetComponentInChildren<PlayerController>();
         if (plyController != null)
+        {
+            Debug.Log(TileTop);
             plyController.CheckCurrentPostition();
+        }
 
-        TileTop = tile_top;
         UpdateCurrentTopper();
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SteamTileManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class SteamTileManager : MonoBehaviour
     {
         steamTimer = timeBetweenSteam;
         activeSteam = false;
+        
     }
 
 
@@ -33,10 +35,10 @@ public class SteamTileManager : MonoBehaviour
         if (!activeSteam && steamTimer > 0)
         {
             steamTimer -= Time.deltaTime;
-        }
-        else if (!activeSteam)
-        {
-            StartCoroutine(PipeSteam());
+            if (steamTimer < 0)
+            {
+                StartCoroutine(PipeSteam());
+            }
         }
     }
 
