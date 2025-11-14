@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2947264205779269951, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
       propertyPath: debugIsInvincible
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4693420097246813853, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -171,10 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8399274045270083947, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
-      propertyPath: debugIsInvincible
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9043053849771414872, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -182,7 +178,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9043053849771414872, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 299711596}
   m_SourcePrefab: {fileID: 100100000, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
 --- !u!1 &299711592 stripped
 GameObject:
@@ -194,6 +193,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4693420097246813853, guid: 51dcef44516498744bbc0b87041375b5, type: 3}
   m_PrefabInstance: {fileID: 299711591}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &299711596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299711592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b446c6e061309e4fa291f4dac6b912d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToLive: 10
+  debugIsInvincible: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef2e7bbcef3d38419327780c7c3b728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLoadedRows: 100
   startingPosition: {x: -4, y: 0, z: 0}
   rowProbabilities:
   - type: 0
@@ -584,11 +596,11 @@ MonoBehaviour:
   - type: 1
     probability: 0.1
   - type: 2
-    probability: 0.05
-  - type: 3
     probability: 0.1
+  - type: 3
+    probability: 0
   - type: 4
-    probability: 0.05
+    probability: 0.1
   commonRowPrefabs:
   - rowPrefab: {fileID: 8981494858646154709, guid: cafcf5d9ef07a8942ab5aa6e466ee89a, type: 3}
     zSize: 1
@@ -610,9 +622,7 @@ MonoBehaviour:
   steamRowPrefabs:
   - rowPrefab: {fileID: 8981494858646154709, guid: 7511c4949e136334fb752205e4e4ecf0, type: 3}
     zSize: 1
-  sunlightRowPrefabs:
-  - rowPrefab: {fileID: 8981494858646154709, guid: 8263a76f8f670de42a1c55e437767537, type: 3}
-    zSize: 1
+  sunlightRowPrefabs: []
   coffeeRowPrefabs:
   - rowPrefab: {fileID: 6175775989412150408, guid: fae440063dbc39248992a6b35d0eaf23, type: 3}
     zSize: 1
