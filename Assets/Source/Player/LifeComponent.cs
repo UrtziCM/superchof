@@ -49,7 +49,7 @@ public class LifeComponent : MonoBehaviour
         //Animacion
         GameManager.Instance.GameEnd();
     }
-    public void AddTimeToLive(int time = 4) 
+    public void AddTimeToLive(int time = 4+4/2) 
     {
         timeToLive += time;
         if (timeToLive > 10)
