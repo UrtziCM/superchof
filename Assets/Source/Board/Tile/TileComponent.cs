@@ -45,7 +45,6 @@ public class TileComponent : MonoBehaviour
         PlayerController plyController = transform.GetComponentInChildren<PlayerController>();
         if (plyController != null)
         {
-            Debug.Log(TileTop);
             plyController.CheckCurrentPostition();
         }
 
