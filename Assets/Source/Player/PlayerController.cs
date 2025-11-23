@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveForward(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed)
+        if (callbackContext.performed && Time.timeScale == 1f)
         {
             CheckAndMove(Vector3.forward);
             GameManager.Instance.TryAddScore();
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveBack(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed)
+        if (callbackContext.performed && Time.timeScale == 1f)
         {
             CheckAndMove(Vector3.back);
         }
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveLeft(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed)
+        if (callbackContext.performed && Time.timeScale == 1f)
         {
             CheckAndMove(Vector3.left);
         }
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveRight(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed)
+        if (callbackContext.performed && Time.timeScale == 1f)
         {
             CheckAndMove(Vector3.right);
         }
