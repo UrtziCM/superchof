@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     private BoardGenerator boardGenerator;
 
+    ViewSceneManager viewSceneManager;  
+
     public static GameManager Instance
     {
         get
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        viewSceneManager = GameObject.Find("SceneManager").GetComponent<ViewSceneManager>();
     }
 
     private void Start()
@@ -101,7 +104,8 @@ public class GameManager : MonoBehaviour
             SaveData();
         }
         //End
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        viewSceneManager.LoadScene("DeathMenu");
     }
 
     private bool IsMaxForward()

@@ -26,6 +26,8 @@ public class DeathMenu : MonoBehaviour
     public void Replay()
     {
         viewSceneManager.UnloadScene("DeathMenu");
+        //Vuelve a cargar la escena del juego
+        viewSceneManager.LoadScene("SampleScene");
         Time.timeScale = 1.0f;
     }
 }
