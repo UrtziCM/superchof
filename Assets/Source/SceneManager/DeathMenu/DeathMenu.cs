@@ -10,6 +10,9 @@ public class DeathMenu : MonoBehaviour
     private TMP_Text scoreText;
 
     ViewSceneManager viewSceneManager;
+
+    private ScoreManager scoreManager;
+
     private void Awake()
     {
         viewSceneManager = GameObject.Find("SceneManager").GetComponent<ViewSceneManager>();
@@ -20,7 +23,9 @@ public class DeathMenu : MonoBehaviour
 
         maxScoreText.text = "Max Score: " + GameManager.Instance.maxSaveScore.ToString();
 
-        scoreText.text = "Score: " + GameManager.Instance.scoreManagerInstance;
+        scoreManager = GameManager.Instance.scoreManagerInstance;
+
+        scoreText.text = "Score: " + scoreManager.currentScore + "";
     }
 
     public void Replay()
