@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.Mathematics;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.WSA;
 using static UnityEngine.GraphicsBuffer;
 
 public class SteamTileManager : MonoBehaviour
@@ -14,7 +15,7 @@ public class SteamTileManager : MonoBehaviour
 
     private float steamTimer;
 
-    private bool activeSteam;
+    private bool activeSteam = false;
 
     [SerializeField]
     private TileComponent[] tiles;
@@ -27,53 +28,40 @@ public class SteamTileManager : MonoBehaviour
 
     [SerializeField]
     public float timeToChange = 2;
-    void Start()
+    IEnumerator Start()
     {
+
         steamTimer = timeBetweenSteam;
         activeSteam = false;
-        
-    }
 
-
-    void Update()
-    {
-        if (!activeSteam && steamTimer > 0)
+        while (true)
         {
-            steamTimer -= Time.deltaTime;
-            if (steamTimer <= 2)
-            {
-                StartCoroutine(BaseToHot());
-                
-
-            }
-            if (steamTimer < 0)
-            {
-                StartCoroutine(PipeSteam());
-            }
+            yield return new WaitForSeconds(2);
+            yield return StartCoroutine(BaseToHotIndexChanger(0,1,timeToChange));
+            yield return StartCoroutine(PipeSteam());
+            yield return StartCoroutine(BaseToHotIndexChanger(1,0,1));
         }
     }
 
-    private IEnumerator BaseToHot()
+    private IEnumerator BaseToHotIndexChanger(int start, int end, float time)
     {
         float toRed = 0;
-
         float intensity = 0;
 
-        while (toRed < timeToChange)
+        while (toRed < time)
         {
             toRed += Time.deltaTime;
 
-            intensity = math.lerp(0, 1, toRed / timeToChange);
-            Debug.Log(intensity);
+            intensity = math.lerp(start, end, toRed / time);
             foreach (GameObject r in pipes)
             {
                 Material BaseToRed = r.GetComponentInChildren<Renderer>().material;
                 BaseToRed.SetFloat("_Index", intensity);
             }
-
             yield return null;
         }
     }
+
     private IEnumerator PipeSteam()
     {
         steamParticle.Play();
@@ -81,7 +69,6 @@ public class SteamTileManager : MonoBehaviour
         yield return new WaitForSeconds(steamActiveTime);
         steamParticle.Stop();
         ToperToNone();
-        steamTimer = timeBetweenSteam;
     }
 
     private void ToperToSteam()
