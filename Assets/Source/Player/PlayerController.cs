@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -65,7 +66,8 @@ public class PlayerController : MonoBehaviour
             TileComponent tile = col.gameObject.GetComponent<TileComponent>();
             if (tile != null && tile.IsTraversable())
             {
-                transform.position = tile.attachPosition;
+                //transform.DOMove(tile.attachPosition, 0.2f, false);
+                //transform.position = tile.attachPosition;
                 switch (tile.GetTileTop())
                 {
                     case TILE_TOP.GRILL:
@@ -86,6 +88,8 @@ public class PlayerController : MonoBehaviour
                         lifeComponentInstance.DieSunlight();
                         break;
                 }
+                transform.DOMove(tile.attachPosition, 0.2f, false);
+
                 transform.SetParent(tile.transform);
             }
         }
