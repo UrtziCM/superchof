@@ -10,6 +10,8 @@ public class SunBeamTileComponent : MonoBehaviour
     
     private Transform floorTile;
 
+    public LayerMask collisionLayer;
+
     void Start()
     {
         RaycastHit hitFloor;
@@ -27,13 +29,23 @@ public class SunBeamTileComponent : MonoBehaviour
             Transform Tilehit = hit.transform;
             if (Tilehit.TryGetComponent<CloudTileComponent>(out CloudTileComponent component))
             {
-                floorTile.GetComponent<TileComponent>().SetTileTop(TILE_TOP.NONE);
-                floorTile.GetComponentInChildren<MeshRenderer>().material = whiteMaterial;
+                TileComponent tc =  floorTile.GetComponent<TileComponent>();
+
+                if(tc.GetTileTop() != TILE_TOP.NONE)
+                {
+                    floorTile.GetComponent<TileComponent>().SetTileTop(TILE_TOP.NONE);
+                    floorTile.GetComponentInChildren<MeshRenderer>().material = whiteMaterial;
+                }
             }
             else
             {
-                Tilehit.GetComponent<TileComponent>().SetTileTop(TILE_TOP.SUNLIGHT);
-                Tilehit.GetComponentInChildren<MeshRenderer>().material = redMaterial;
+                TileComponent tc =  floorTile.GetComponent<TileComponent>();
+
+                if(tc.GetTileTop() != TILE_TOP.SUNLIGHT)
+                {
+                    Tilehit.GetComponent<TileComponent>().SetTileTop(TILE_TOP.SUNLIGHT);
+                    Tilehit.GetComponentInChildren<MeshRenderer>().material = redMaterial;
+                }
             }
         }
     }
