@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
 
     private LifeComponent lifeComponentInstance;
 
+    [SerializeField]
+    private GameObject deathMenuCanvas;
+    [SerializeField]
+    private GameObject mainMenuCanvas;
+
     private void Start()
     {
         targetPosition = transform.position;
@@ -26,7 +31,9 @@ public class PlayerController : MonoBehaviour
 
     public void MoveForward(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed && Time.timeScale == 1f)
+        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+
+        if (callbackContext.performed)
         {
             CheckAndMove(Vector3.forward);
             GameManager.Instance.TryAddScore();
@@ -35,7 +42,9 @@ public class PlayerController : MonoBehaviour
 
     public void MoveBack(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed && Time.timeScale == 1f)
+        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+
+        if (callbackContext.performed)
         {
             CheckAndMove(Vector3.back);
         }
@@ -43,7 +52,9 @@ public class PlayerController : MonoBehaviour
 
     public void MoveLeft(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed && Time.timeScale == 1f)
+        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+
+        if (callbackContext.performed)
         {
             CheckAndMove(Vector3.left);
         }
@@ -51,7 +62,9 @@ public class PlayerController : MonoBehaviour
 
     public void MoveRight(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed && Time.timeScale == 1f)
+        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+
+        if (callbackContext.performed)
         {
             CheckAndMove(Vector3.right);
         }

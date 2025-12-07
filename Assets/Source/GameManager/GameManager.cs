@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
 
     private BoardGenerator boardGenerator;
 
+    [SerializeField]
+    private GameObject deathMenuCanvas;
+
     public static GameManager Instance
     {
         get
@@ -38,6 +41,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
 
@@ -58,8 +63,6 @@ public class GameManager : MonoBehaviour
         {
             needTutorial = false;
         }
-
-
     }
     public GameObject currentInteractror { get; set; }
 
@@ -101,7 +104,8 @@ public class GameManager : MonoBehaviour
             SaveData();
         }
         //End
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        deathMenuCanvas.SetActive(true);
     }
 
     private bool IsMaxForward()

@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Analytics;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
@@ -6,21 +7,38 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private TMP_Text maxScoreText;
 
-    ViewSceneManager viewSceneManager;
-    private void Awake()
-    {
-        viewSceneManager = GameObject.Find("SceneManager").GetComponent<ViewSceneManager>();
-    }
+    [SerializeField]
+    private GameObject mainMenuCanvas;
+
+    private static bool EnterGame = true;
+
     private void Start()
     {
-        Time.timeScale = 0.0f;
-
         maxScoreText.text = "Max Score: " + GameManager.Instance.maxSaveScore.ToString();
+
+        if (EnterGame)
+        {
+            EnterGame = false;
+            ShowMenu();
+        }
+        else
+        {
+            mainMenuCanvas.SetActive(false);
+        }
+    }
+
+    public void ShowMenu()
+    {
+        mainMenuCanvas.SetActive(true);
     }
 
     public void Play()
     {
-        viewSceneManager.UnloadScene("MainMenu");
-        Time.timeScale = 1.0f;
+        mainMenuCanvas.SetActive(false);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
