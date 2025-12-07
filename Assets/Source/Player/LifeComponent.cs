@@ -9,9 +9,16 @@ public class LifeComponent : MonoBehaviour
     public float timeToLive = 10f;
 
     public bool debugIsInvincible = false;
+    
+    [SerializeField]
+    private GameObject deathMenuCanvas;
+    [SerializeField]
+    private GameObject mainMenuCanvas;
 
     void Update()
     {
+        if(deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+
         timeToLive -= Time.deltaTime;
         if (timeToLive <= 0 && !debugIsInvincible)
         {

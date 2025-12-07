@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathMenu : MonoBehaviour
 {
@@ -9,18 +10,17 @@ public class DeathMenu : MonoBehaviour
     [SerializeField]
     private TMP_Text scoreText;
 
-    ViewSceneManager viewSceneManager;
+    [SerializeField]
+    private GameObject deathCanvas;
 
     private ScoreManager scoreManager;
 
-    private void Awake()
-    {
-        viewSceneManager = GameObject.Find("SceneManager").GetComponent<ViewSceneManager>();
-    }
     private void Start()
     {
-        Time.timeScale = 0.0f;
-
+        deathCanvas.SetActive(false);
+    }
+    private void OnEnable()
+    {
         maxScoreText.text = "Max Score: " + GameManager.Instance.maxSaveScore.ToString();
 
         scoreManager = GameManager.Instance.scoreManagerInstance;
@@ -30,10 +30,7 @@ public class DeathMenu : MonoBehaviour
 
     public void Replay()
     {
-        viewSceneManager.UnloadScene("DeathMenu");
-        viewSceneManager.UnloadScene("SampleScene");
-        //Vuelve a cargar la escena del juego
-        viewSceneManager.LoadScene("SampleScene");
-        Time.timeScale = 1.0f;
+        deathCanvas.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 }

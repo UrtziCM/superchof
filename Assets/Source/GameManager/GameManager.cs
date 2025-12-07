@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
 
     private BoardGenerator boardGenerator;
 
-    ViewSceneManager viewSceneManager;  
+    [SerializeField]
+    private GameObject deathMenuCanvas;
 
     public static GameManager Instance
     {
@@ -36,11 +37,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        viewSceneManager = GameObject.Find("SceneManager").GetComponent<ViewSceneManager>();
     }
 
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
 
@@ -61,8 +63,6 @@ public class GameManager : MonoBehaviour
         {
             needTutorial = false;
         }
-
-
     }
     public GameObject currentInteractror { get; set; }
 
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         }
         //End
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        viewSceneManager.LoadScene("DeathMenu");
+        deathMenuCanvas.SetActive(true);
     }
 
     private bool IsMaxForward()
