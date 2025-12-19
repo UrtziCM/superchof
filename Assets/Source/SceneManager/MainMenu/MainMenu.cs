@@ -6,6 +6,8 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text maxScoreText;
+    [SerializeField]
+    private GameObject HPCanvas;
 
     [SerializeField]
     private GameObject mainMenuCanvas;
@@ -30,11 +32,13 @@ public class MainMenu : MonoBehaviour
     public void ShowMenu()
     {
         mainMenuCanvas.SetActive(true);
+        HPCanvas.SetActive(false);
     }
 
     public void Play()
     {
         mainMenuCanvas.SetActive(false);
+        HPCanvas.SetActive(true);
     }
 
     public void Quit()
