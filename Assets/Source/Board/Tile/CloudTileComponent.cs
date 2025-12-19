@@ -28,7 +28,7 @@ public class CloudTileComponent : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (transform.position.x > 4)
+        if (transform.position.x > 13)
         {
             transform.position = resetPosition;
         }
