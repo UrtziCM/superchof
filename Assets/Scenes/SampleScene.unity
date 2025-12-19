@@ -1500,6 +1500,8 @@ MonoBehaviour:
     zSize: 3
   - rowPrefab: {fileID: 8950184074317477391, guid: eb02d7c8f51d38b4987506bcac268de8, type: 3}
     zSize: 3
+  tutorialPrefab: {fileID: 2276540703444738821, guid: 53308545be2f759439d3ad3250c1ffbc, type: 3}
+  freezerPrefab: {fileID: 2276540703444738821, guid: 70d741972eb5d6b42b222116626b57b9, type: 3}
 --- !u!1 &1090687608
 GameObject:
   m_ObjectHideFlags: 0
