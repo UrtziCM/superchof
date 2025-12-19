@@ -49,10 +49,6 @@ public class GameManager : MonoBehaviour
 
         boardGenerator = GetComponent<BoardGenerator>();
 
-        for (int i = 0; i < 20; i++)
-        {
-            boardGenerator.GenerateRow();
-        }
 
         maxSaveScore = PlayerPrefs.GetInt("Score");
         if (PlayerPrefs.GetInt("tutorial") == 0)
@@ -63,6 +59,8 @@ public class GameManager : MonoBehaviour
         {
             needTutorial = false;
         }
+        GameStart();
+
     }
     public GameObject currentInteractror { get; set; }
 
@@ -74,8 +72,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //Generacion normall
+            boardGenerator.GenerateStart();
         }
+        
     }
 
     public void GameStop()
@@ -121,6 +120,7 @@ public class GameManager : MonoBehaviour
     private void Tutorial()
     {
         //Llama a la generacion de inicio que es el tutorial
+        boardGenerator.GenerateStart(!needTutorial);
         PlayerPrefs.SetInt("tutorial", 1);
     }
 

@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum ROW_TYPE
@@ -63,6 +64,13 @@ public class BoardGenerator : MonoBehaviour
     private List<Row> sunlightRowPrefabs;
     [SerializeField]
     private List<Row> coffeeRowPrefabs;
+
+    [Header("Starting prefabs")]
+    [SerializeField]
+    private GameObject tutorialPrefab;
+    [SerializeField]
+    private GameObject freezerPrefab;
+
 
 
 
@@ -157,6 +165,25 @@ public class BoardGenerator : MonoBehaviour
         {
             Gizmos.DrawWireCube(startingPosition + Vector3.right * i + Vector3.down, Vector3.one);
         }
+    }
+
+    public void GenerateStart(bool useTutorial = false)
+    {
+        if (useTutorial)
+        {
+            Instantiate(tutorialPrefab, Vector3.right * 4, Quaternion.Euler(Vector3.up * 180));
+            currentRow += 12;
+            while (_rowObjects.Count < _maxLoadedRows / 3)
+                GenerateRandomRow();
+        }
+        else
+        {
+            Instantiate(freezerPrefab, Vector3.forward * (0b100 + 0b10) + Vector3.left * 4, Quaternion.identity);
+            currentRow += 9;
+            while (_rowObjects.Count < _maxLoadedRows / 3)
+                GenerateRandomRow();
+        }
+
     }
 
 }
