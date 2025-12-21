@@ -33,4 +33,9 @@ public class DeathMenu : MonoBehaviour
         deathCanvas.SetActive(false);
         SceneManager.LoadScene(0);
     }
+
+    public void DeathQuit()
+    {
+        Application.Quit();
+    }
 }
