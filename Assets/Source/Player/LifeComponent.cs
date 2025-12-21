@@ -1,3 +1,4 @@
+using System;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -15,6 +16,11 @@ public class LifeComponent : MonoBehaviour
     [SerializeField]
     private GameObject mainMenuCanvas;
 
+    [SerializeField]
+    private float minScale = 0.2f;
+    [SerializeField] 
+    private Transform characterModel;
+
     void Update()
     {
         if(deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
@@ -25,6 +31,14 @@ public class LifeComponent : MonoBehaviour
             DieMolten();
         }
         _hpCanvasHelper.SetProgress(timeToLive/10f);
+
+        scaleCharacter(timeToLive/10f);
+    }
+
+    private void scaleCharacter(float life)
+    { 
+        float scale = Mathf.Lerp(minScale, 1f, life);
+        characterModel.localScale = new Vector3(scale, scale, scale);
     }
 
     public void DieMolten() 
