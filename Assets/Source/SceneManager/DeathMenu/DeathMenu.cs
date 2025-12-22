@@ -17,7 +17,7 @@ public class DeathMenu : MonoBehaviour
 
     private void Start()
     {
-        deathCanvas.SetActive(false);
+        //deathCanvas.SetActive(false);
     }
     private void OnEnable()
     {
@@ -30,7 +30,7 @@ public class DeathMenu : MonoBehaviour
 
     public void Replay()
     {
-        deathCanvas.SetActive(false);
+        //deathCanvas.SetActive(false);
         SceneManager.LoadScene(0);
     }
 

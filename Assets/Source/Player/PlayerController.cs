@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
             TileComponent tile = col.gameObject.GetComponent<TileComponent>();
             if (tile != null && tile.IsTraversable())
             {
-                CheckTile(tile);
                 Move(tile);
+                CheckTile(tile);
             }
         }
     }
@@ -115,9 +115,9 @@ public class PlayerController : MonoBehaviour
 
     private void Move(TileComponent tile)
     {
+        transform.SetParent(tile.transform);
         transform.DOMove(tile.attachPosition, 0.2f, false);
 
-        transform.SetParent(tile.transform);
     }
 
     public void CheckCurrentPostition()

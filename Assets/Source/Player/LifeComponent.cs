@@ -50,7 +50,7 @@ public class LifeComponent : MonoBehaviour
     public void DieGrill()
     {
         //Animacion
-
+        Debug.Log("DIE GRILL");
         GameManager.Instance.GameEnd();
     }
 

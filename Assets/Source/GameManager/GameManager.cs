@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -102,8 +103,10 @@ public class GameManager : MonoBehaviour
             SaveData();
         }
         //End
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(0);
+
         deathMenuCanvas.SetActive(true);
+        Debug.Log(deathMenuCanvas.activeSelf);
     }
 
     private bool IsMaxForward()

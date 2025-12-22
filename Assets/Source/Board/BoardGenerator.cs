@@ -131,7 +131,7 @@ public class BoardGenerator : MonoBehaviour
         }
         GameObject createdRows = Instantiate(thisRow.rowPrefab, Vector3.forward * currentRow + Vector3.left * 4, Quaternion.identity);
 
-        SceneManager.MoveGameObjectToScene(createdRows, SceneManager.GetSceneByName("SampleScene"));
+        //SceneManager.MoveGameObjectToScene(createdRows, SceneManager.GetSceneByName("SampleScene"));
 
         currentRow += thisRow.zSize;
         _rowObjects.Enqueue(createdRows);
