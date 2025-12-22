@@ -4,9 +4,11 @@ public class MovingTileComponent : TileComponent
 {
     [SerializeField]
     [Range(0f, 5f)]
-    private float SPEED = 2f;
+    private float SPEED = 1f;
     [SerializeField]
     private Vector3 resetPosition;
+    private float resetX;
+
     [SerializeField]
     [Range(-15,15)]
     private ushort maxX = 9;
@@ -20,14 +22,17 @@ public class MovingTileComponent : TileComponent
     void Start()
     {
         resetPosition = transform.TransformPoint(resetPosition);
+        resetX = transform.position.x + maxX;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.frameCount % 60 == 0) { 
+            transform.position += (!goingLeft) ? SPEED * Vector3.right : SPEED * Vector3.left;
+        }
         attachPosition = transform.position;
 
-        transform.position +=(!goingLeft)? SPEED * Time.deltaTime * Vector3.right: SPEED * Time.deltaTime * Vector3.left;
         //if (!goingLeft)
         //{
         
@@ -44,7 +49,7 @@ public class MovingTileComponent : TileComponent
 
     private void LateUpdate()
     {
-        if (transform.position.x > 4)
+        if (transform.position.x > resetX)
         {
             transform.position = resetPosition;
             PlayerController p;
@@ -53,9 +58,13 @@ public class MovingTileComponent : TileComponent
             }
         }
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + resetPosition, Vector3.one);
+        Gizmos.DrawWireSphere(transform.position + resetPosition, .75f);
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position + Vector3.right * maxX, .75f);
+
     }
 }

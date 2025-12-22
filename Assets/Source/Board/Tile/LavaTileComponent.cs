@@ -26,10 +26,10 @@ public class LavaTileComponent : TileComponent
             }
         }
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(attachPosition, Vector3.one * .25f);
+        Gizmos.DrawCube(attachPosition + transform.position, Vector3.one * .25f);
         Gizmos.DrawWireCube(transform.position, Vector3.one * .99f);
 
     }

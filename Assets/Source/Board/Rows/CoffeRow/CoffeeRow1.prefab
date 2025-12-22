@@ -624,7 +624,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280287858775007892, guid: 9b354e2cab106bb418fbd0673a5b0b17, type: 3}
       propertyPath: maxX
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 280287858775007892, guid: 9b354e2cab106bb418fbd0673a5b0b17, type: 3}
       propertyPath: minX
@@ -884,7 +884,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280287858775007892, guid: 9b354e2cab106bb418fbd0673a5b0b17, type: 3}
       propertyPath: maxX
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 280287858775007892, guid: 9b354e2cab106bb418fbd0673a5b0b17, type: 3}
       propertyPath: minX
@@ -1392,11 +1392,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280287858775007892, guid: 9b354e2cab106bb418fbd0673a5b0b17, type: 3}
       propertyPath: maxX
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 280287858775007892, guid: 9b354e2cab106bb418fbd0673a5b0b17, type: 3}
       propertyPath: minX
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 280287858775007892, guid: 9b354e2cab106bb418fbd0673a5b0b17, type: 3}
+      propertyPath: SPEED
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 280287858775007892, guid: 9b354e2cab106bb418fbd0673a5b0b17, type: 3}
       propertyPath: resetPosition.x

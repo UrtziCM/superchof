@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -97,7 +95,8 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        if(scoreManagerInstance.IsHighScore())
+
+        if (scoreManagerInstance.IsHighScore())
         {
             //Pantalla de nuevo record
             SaveData();

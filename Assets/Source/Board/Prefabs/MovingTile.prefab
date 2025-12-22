@@ -162,7 +162,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SPEED: 2
+  SPEED: 1
   resetPosition: {x: 0, y: 0, z: 0}
   maxX: 6
   minX: 2

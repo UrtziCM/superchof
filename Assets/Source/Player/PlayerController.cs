@@ -5,16 +5,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float moveDistance;
-    [SerializeField]
-    private float moveSpeed;
-
-    [SerializeField]
     private bool debugIsInvincible = false;
 
-    private Vector3 targetPosition;
-
-    private LifeComponent lifeComponentInstance;
+    private LifeComponent lifeComponentInstance => GetComponent<LifeComponent>();
 
     [SerializeField]
     private GameObject deathMenuCanvas;
@@ -23,9 +16,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        targetPosition = transform.position;
-
-        lifeComponentInstance = GetComponent<LifeComponent>();
         lifeComponentInstance.debugIsInvincible = debugIsInvincible;
     }
 
@@ -79,38 +69,60 @@ public class PlayerController : MonoBehaviour
             TileComponent tile = col.gameObject.GetComponent<TileComponent>();
             if (tile != null && tile.IsTraversable())
             {
-                //transform.DOMove(tile.attachPosition, 0.2f, false);
-                //transform.position = tile.attachPosition;
-                switch (tile.GetTileTop())
-                {
-                    case TILE_TOP.GRILL:
-                        lifeComponentInstance.DieGrill();
-                        break;
-                    case TILE_TOP.ICE_CUBE:
-                        lifeComponentInstance.AddTimeToLive();
-                        tile.SetTileTop(TILE_TOP.NONE);
-                        break;
-                    case TILE_TOP.COFFEE:
-                        if (!(transform.GetComponentInParent<MovingTileComponent>() != null))
-                            lifeComponentInstance.DieCoffee();
-                        break;
-                    case TILE_TOP.STEAM:
-                        lifeComponentInstance.DieSteam();
-                        break;
-                    case TILE_TOP.SUNLIGHT:
-                        lifeComponentInstance.DieSunlight();
-                        break;
-                }
-                transform.DOMove(tile.attachPosition, 0.2f, false);
-
-                transform.SetParent(tile.transform);
+                CheckTile(tile);
+                Move(tile);
             }
         }
     }
 
+    private void CheckPosition(Vector3 direction)
+    {
+        Vector3 boxPos = transform.position + direction;
+        Collider[] hitCollider = Physics.OverlapBox(boxPos, transform.localScale * 0.25f, Quaternion.identity);
+        foreach (Collider col in hitCollider)
+        {
+            TileComponent tile = col.gameObject.GetComponent<TileComponent>();
+            if (tile != null && tile.IsTraversable())
+            {
+                CheckTile(tile);
+            }
+        }
+    }
+
+    private void CheckTile(TileComponent tile)
+    {
+        switch (tile.GetTileTop())
+        {
+            case TILE_TOP.GRILL:
+                lifeComponentInstance.DieGrill();
+                break;
+            case TILE_TOP.ICE_CUBE:
+                lifeComponentInstance.AddTimeToLive();
+                tile.SetTileTop(TILE_TOP.NONE);
+                break;
+            case TILE_TOP.COFFEE:
+                if (!(transform.GetComponentInParent<MovingTileComponent>() != null))
+                    lifeComponentInstance.DieCoffee();
+                break;
+            case TILE_TOP.STEAM:
+                lifeComponentInstance.DieSteam();
+                break;
+            case TILE_TOP.SUNLIGHT:
+                lifeComponentInstance.DieSunlight();
+                break;
+        }
+    }
+
+    private void Move(TileComponent tile)
+    {
+        transform.DOMove(tile.attachPosition, 0.2f, false);
+
+        transform.SetParent(tile.transform);
+    }
+
     public void CheckCurrentPostition()
     {
-        CheckAndMove(Vector3.zero);
+        CheckPosition(Vector3.zero);
     }
 
     void OnDrawGizmos()

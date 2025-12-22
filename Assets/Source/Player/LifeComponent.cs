@@ -8,7 +8,7 @@ public class LifeComponent : MonoBehaviour
     private HPCanvasHelper _hpCanvasHelper;
 
     public float timeToLive = 10f;
-
+    [HideInInspector]
     public bool debugIsInvincible = false;
     
     [SerializeField]
@@ -50,6 +50,7 @@ public class LifeComponent : MonoBehaviour
     public void DieGrill()
     {
         //Animacion
+
         GameManager.Instance.GameEnd();
     }
 
