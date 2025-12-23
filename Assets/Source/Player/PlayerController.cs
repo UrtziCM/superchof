@@ -19,9 +19,16 @@ public class PlayerController : MonoBehaviour
         lifeComponentInstance.debugIsInvincible = debugIsInvincible;
     }
 
+    private bool CanMove()
+    {
+        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return false;
+        if (transform.GetComponent<LifeComponent>().isDying) return false;
+        return true;
+    }
+
     public void MoveForward(InputAction.CallbackContext callbackContext)
     {
-        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+        if(CanMove() == false) return;
 
         if (callbackContext.performed)
         {
@@ -32,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveBack(InputAction.CallbackContext callbackContext)
     {
-        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+        if (CanMove() == false) return;
 
         if (callbackContext.performed)
         {
@@ -42,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveLeft(InputAction.CallbackContext callbackContext)
     {
-        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+        if (CanMove() == false) return;
 
         if (callbackContext.performed)
         {
@@ -52,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveRight(InputAction.CallbackContext callbackContext)
     {
-        if (deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+        if (CanMove() == false) return;
 
         if (callbackContext.performed)
         {

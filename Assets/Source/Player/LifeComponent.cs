@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEditorInternal;
 using UnityEngine;
@@ -17,13 +18,16 @@ public class LifeComponent : MonoBehaviour
     private GameObject mainMenuCanvas;
 
     [SerializeField]
-    private float minScale = 0.2f;
+    private float minScale = 0.3f;
     [SerializeField] 
     private Transform characterModel;
+
+    public bool isDying = false;
 
     void Update()
     {
         if(deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
+        if(isDying) return;
 
         timeToLive -= Time.deltaTime;
         if (timeToLive <= 0 && !debugIsInvincible)
@@ -43,36 +47,70 @@ public class LifeComponent : MonoBehaviour
 
     public void DieMolten() 
     {
-        //Animacion
-        GameManager.Instance.GameEnd();
+        if(isDying) return;
+        isDying = true;
+
+        characterModel.DOScale(Vector3.zero, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            GameManager.Instance.GameEnd();
+        });
     }
 
     public void DieGrill()
     {
-        //Animacion
-        Debug.Log("DIE GRILL");
-        GameManager.Instance.GameEnd();
+        if(isDying) return;
+        isDying = true;
+
+        characterModel.DOScaleY(0f, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            GameManager.Instance.GameEnd();
+        });
     }
 
     public void DieSunlight()
     {
-        //Animacion
-        GameManager.Instance.GameEnd();
+        if (isDying) return;
+        isDying = true;
+
+        characterModel.DOScaleY(0f, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            GameManager.Instance.GameEnd();
+        });
     }
 
     public void DieCoffee()
     {
-        //Animacion
-        GameManager.Instance.GameEnd();
+        if (isDying) return;
+        isDying = true;
+
+        characterModel.DOLocalMoveY(-1.5f, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            GameManager.Instance.GameEnd();
+        });
     }
 
     public void DieSteam()
     {
-        //Animacion
-        GameManager.Instance.GameEnd();
+        if (isDying) return;
+        isDying = true;
+
+        float startPos = characterModel.localPosition.x;
+        float startScale = characterModel.localScale.x;
+
+        Sequence steamDeathSequence = DOTween.Sequence();
+
+        steamDeathSequence.Append(characterModel.DOScaleX(0f, 0.5f).SetEase(Ease.Linear));
+        steamDeathSequence.Join(characterModel.DOLocalMoveX(startPos + (startScale * 0.5f), 0.5f).SetEase(Ease.Linear));
+
+        steamDeathSequence.OnComplete(() =>
+        {
+            GameManager.Instance.GameEnd();
+        });
     }
     public void AddTimeToLive(int time = 4+4/2) 
     {
+        if(isDying) return;
+
         timeToLive += time;
         if (timeToLive > 10)
         {
