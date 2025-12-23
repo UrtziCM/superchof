@@ -4919,7 +4919,7 @@ MonoBehaviour:
   - {fileID: 5711293546658125063}
   steamParticle: {fileID: 8905188257907358924}
   timeToChange: 2
-  steam: {fileID: 8300000, guid: 55919c8d3862d504cbf6ad540f3dc69c, type: 3}
+  steam: {fileID: 8300000, guid: 993c20f9a8f245748973171f21a87ecd, type: 3}
 --- !u!1001 &102570060441606204
 PrefabInstance:
   m_ObjectHideFlags: 0
