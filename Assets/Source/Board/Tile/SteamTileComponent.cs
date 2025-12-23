@@ -67,7 +67,7 @@ public class SteamTileManager : MonoBehaviour
     private IEnumerator PipeSteam()
     {
         steamParticle.Play();
-        AudioManager.instance.PlaySound(steam, transform, 1f);
+        AudioManager.instance.PlaySound(steam, transform, 0.5f);
         ToperToSteam();
         yield return new WaitForSeconds(steamActiveTime);
         steamParticle.Stop();
