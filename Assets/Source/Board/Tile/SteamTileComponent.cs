@@ -28,6 +28,8 @@ public class SteamTileManager : MonoBehaviour
 
     [SerializeField]
     public float timeToChange = 2;
+
+    [SerializeField] private AudioClip steam;
     IEnumerator Start()
     {
 
@@ -65,6 +67,7 @@ public class SteamTileManager : MonoBehaviour
     private IEnumerator PipeSteam()
     {
         steamParticle.Play();
+        AudioManager.instance.PlaySound(steam, transform, 1f);
         ToperToSteam();
         yield return new WaitForSeconds(steamActiveTime);
         steamParticle.Stop();

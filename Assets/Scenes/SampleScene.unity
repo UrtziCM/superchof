@@ -2000,6 +2000,7 @@ GameObject:
   - component: {fileID: 1079153447}
   - component: {fileID: 1079153446}
   - component: {fileID: 1079153448}
+  - component: {fileID: 1079153449}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2122,6 +2123,19 @@ MonoBehaviour:
     zSize: 3
   tutorialPrefab: {fileID: 2276540703444738821, guid: 53308545be2f759439d3ad3250c1ffbc, type: 3}
   freezerPrefab: {fileID: 2276540703444738821, guid: 70d741972eb5d6b42b222116626b57b9, type: 3}
+--- !u!114 &1079153449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079153445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b1746bc2b624b42bb1ad2e98f891ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabAudioSource: {fileID: 3518158823295130050, guid: c1eac7ffa261c2d40b57f390564509af, type: 3}
 --- !u!1 &1090687608
 GameObject:
   m_ObjectHideFlags: 0

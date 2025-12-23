@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject mainMenuCanvas;
 
+
+
     private void Start()
     {
         lifeComponentInstance.debugIsInvincible = debugIsInvincible;
@@ -28,7 +30,8 @@ public class PlayerController : MonoBehaviour
 
     public void MoveForward(InputAction.CallbackContext callbackContext)
     {
-        if(CanMove() == false) return;
+        if (CanMove() == false) return;
+
 
         if (callbackContext.performed)
         {

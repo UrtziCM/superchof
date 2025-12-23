@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585f4afc4370c24448f78fbdaef96014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 100
-  moveSpeed: 100
   debugIsInvincible: 0
+  deathMenuCanvas: {fileID: 0}
+  mainMenuCanvas: {fileID: 0}
 --- !u!114 &691999099623006393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +159,14 @@ MonoBehaviour:
   _hpCanvasHelper: {fileID: 0}
   timeToLive: 10
   debugIsInvincible: 0
+  deathMenuCanvas: {fileID: 0}
+  mainMenuCanvas: {fileID: 0}
+  minScale: 0.3
+  characterModel: {fileID: 0}
+  isDying: 0
+  coffe_drop: {fileID: 8300000, guid: 16fa7ca77818ec145bc8cda21ce87b14, type: 3}
+  melting: {fileID: 8300000, guid: e051b8858d9c75747a76641eb8f6bc39, type: 3}
+  hit: {fileID: 8300000, guid: aa52f1a0f1af12848b31943cf456e36a, type: 3}
 --- !u!1001 &6516286688880392231
 PrefabInstance:
   m_ObjectHideFlags: 0

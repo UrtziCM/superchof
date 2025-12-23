@@ -24,6 +24,10 @@ public class LifeComponent : MonoBehaviour
 
     public bool isDying = false;
 
+    [SerializeField] private AudioClip coffe_drop;
+    [SerializeField] private AudioClip melting;
+    [SerializeField] private AudioClip hit;
+
     void Update()
     {
         if(deathMenuCanvas.activeSelf || mainMenuCanvas.activeSelf) return;
@@ -49,7 +53,7 @@ public class LifeComponent : MonoBehaviour
     {
         if(isDying) return;
         isDying = true;
-
+        AudioManager.instance.PlaySound(melting, transform, 1F);
         characterModel.DOScale(Vector3.zero, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             GameManager.Instance.GameEnd();
@@ -60,7 +64,7 @@ public class LifeComponent : MonoBehaviour
     {
         if(isDying) return;
         isDying = true;
-
+        AudioManager.instance.PlaySound(melting, transform, 1F);
         characterModel.DOScaleY(0f, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             GameManager.Instance.GameEnd();
@@ -71,6 +75,7 @@ public class LifeComponent : MonoBehaviour
     {
         if (isDying) return;
         isDying = true;
+        AudioManager.instance.PlaySound(melting, transform, 1F);
 
         characterModel.DOScaleY(0f, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
@@ -82,7 +87,7 @@ public class LifeComponent : MonoBehaviour
     {
         if (isDying) return;
         isDying = true;
-
+        AudioManager.instance.PlaySound(coffe_drop, transform, 1F);
         characterModel.DOLocalMoveY(-1.5f, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             GameManager.Instance.GameEnd();
@@ -93,7 +98,7 @@ public class LifeComponent : MonoBehaviour
     {
         if (isDying) return;
         isDying = true;
-
+        AudioManager.instance.PlaySound(melting, transform, 1F);
         float startPos = characterModel.localPosition.x;
         float startScale = characterModel.localScale.x;
 
@@ -111,6 +116,7 @@ public class LifeComponent : MonoBehaviour
     {
         if(isDying) return;
 
+        AudioManager.instance.PlaySound(hit, transform, 1F);
         timeToLive += time;
         if (timeToLive > 10)
         {
