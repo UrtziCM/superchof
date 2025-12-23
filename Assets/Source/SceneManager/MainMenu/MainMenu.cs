@@ -18,8 +18,6 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        maxScoreText.text = "Max Score: " + GameManager.Instance.maxSaveScore.ToString();
-
         if (EnterGame)
         {
             EnterGame = false;
@@ -48,5 +46,11 @@ public class MainMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void FixedUpdate()
+    {
+        //Para que al iniciar el juego no salga 0 en el max score
+        maxScoreText.text = "Max Score: " + GameManager.Instance.maxSaveScore.ToString();
     }
 }
