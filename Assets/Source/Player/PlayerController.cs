@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject mainMenuCanvas;
 
-    private Tween moveTween;
+    //private Tween moveTween;
 
     private void Start()
     {
@@ -125,10 +125,11 @@ public class PlayerController : MonoBehaviour
 
     private void Move(TileComponent tile)
     {
-        if (moveTween != null && moveTween.IsActive()) moveTween.Kill(true);
+        //if (moveTween != null && moveTween.IsActive()) moveTween.Kill(true);
 
         transform.SetParent(tile.transform);
-        moveTween = transform.DOMove(tile.attachPosition, 0.2f, false);
+        transform.position = tile.attachPosition;
+        //moveTween = transform.DOMove(tile.attachPosition, 0.2f, false);
     }
 
     public void CheckCurrentPostition()
