@@ -2109,6 +2109,8 @@ MonoBehaviour:
   sunlightRowPrefabs:
   - rowPrefab: {fileID: 8981494858646154709, guid: 8263a76f8f670de42a1c55e437767537, type: 3}
     zSize: 1
+  - rowPrefab: {fileID: 8981494858646154709, guid: eb75135f4a8313a47be112170977a140, type: 3}
+    zSize: 1
   coffeeRowPrefabs:
   - rowPrefab: {fileID: 6175775989412150408, guid: fae440063dbc39248992a6b35d0eaf23, type: 3}
     zSize: 1
@@ -3188,8 +3190,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e3bc93179f26a6478a7de94da3bf20c, type: 2}
-  m_sharedMaterial: {fileID: -3690132330172089670, guid: 2e3bc93179f26a6478a7de94da3bf20c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
