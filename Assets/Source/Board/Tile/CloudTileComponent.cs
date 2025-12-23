@@ -10,10 +10,17 @@ public class CloudTileComponent : MonoBehaviour
     [SerializeField]
     private Vector3 resetPosition;
 
+    [SerializeField]
+    private bool goingLeft = false;
+
+    private int direction;
+
     private void Start()
     {
         resetPosition = transform.TransformPoint(resetPosition);
         time = 0f;
+
+        direction = goingLeft ? -1 : 1;
     }
 
     void Update()
@@ -23,14 +30,23 @@ public class CloudTileComponent : MonoBehaviour
         if (time >= secondsToMove)
         {
             time = 0f;
-            transform.position += transform.right * 1;
+            transform.position += transform.right * direction;
         }
     }
     private void LateUpdate()
     {
-        if (transform.position.x > 13)
+        if (!goingLeft)
         {
-            transform.position = resetPosition;
+            if (transform.position.x > 13) {
+                transform.position = resetPosition;
+            }
+        }
+        else
+        {
+            if (transform.position.x < -13)
+            {
+                transform.position = resetPosition;
+            }
         }
     }
 }
