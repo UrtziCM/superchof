@@ -1,6 +1,4 @@
 using DG.Tweening;
-using System;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class LifeComponent : MonoBehaviour

@@ -106,7 +106,6 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene(0);
 
         deathMenuCanvas.SetActive(true);
-        Debug.Log(deathMenuCanvas.activeSelf);
     }
 
     private bool IsMaxForward()

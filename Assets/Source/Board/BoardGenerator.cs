@@ -89,7 +89,7 @@ public class BoardGenerator : MonoBehaviour
         }
         if (rowWeightSum > 1f)
         {
-            Debug.LogError($"BoardGenerator: Composite probability > 1.0 ({rowWeightSum})");
+            //Debug.LogError($"BoardGenerator: Composite probability > 1.0 ({rowWeightSum})");
         }
 
     }
@@ -154,7 +154,6 @@ public class BoardGenerator : MonoBehaviour
             }
             sumProbability += rowType.probability;
         }
-        Debug.LogWarning("Nothing spawned");
     }
 
 
