@@ -14,7 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject mainMenuCanvas;
 
-    //private Tween moveTween;
+    private Tween moveTween;
+    private bool isMoving = false;
+
+    private Vector3 positionToMove = Vector3.zero;
 
     private void Start()
     {
@@ -35,8 +38,16 @@ public class PlayerController : MonoBehaviour
 
         if (callbackContext.performed)
         {
-            CheckAndMove(Vector3.forward);
-            GameManager.Instance.TryAddScore();
+            if (!isMoving)
+            {
+                CheckAndMove(Vector3.forward);
+                GameManager.Instance.TryAddScore();
+            }
+            else
+            {
+                positionToMove = Vector3.forward;
+            }
+
         }
     }
 
@@ -48,6 +59,10 @@ public class PlayerController : MonoBehaviour
         {
             CheckAndMove(Vector3.back);
         }
+        else
+        {
+            positionToMove = Vector3.back;
+        }
     }
 
     public void MoveLeft(InputAction.CallbackContext callbackContext)
@@ -58,6 +73,10 @@ public class PlayerController : MonoBehaviour
         {
             CheckAndMove(Vector3.left);
         }
+        else
+        {
+            positionToMove = Vector3.left;
+        }
     }
 
     public void MoveRight(InputAction.CallbackContext callbackContext)
@@ -67,6 +86,10 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.performed)
         {
             CheckAndMove(Vector3.right);
+        }
+        else
+        {
+            positionToMove = Vector3.right;
         }
     }
 
@@ -125,11 +148,33 @@ public class PlayerController : MonoBehaviour
 
     private void Move(TileComponent tile)
     {
-        //if (moveTween != null && moveTween.IsActive()) moveTween.Kill(true);
+        if (isMoving) return;
+        isMoving = true;
+
+        if (moveTween != null && moveTween.IsActive()) moveTween.Kill(true);
 
         transform.SetParent(tile.transform);
-        transform.position = tile.attachPosition;
-        //moveTween = transform.DOMove(tile.attachPosition, 0.2f, false);
+        //transform.position = tile.attachPosition;
+        moveTween = transform.DOMove(tile.attachPosition, 0.2f, false).OnComplete(() =>
+        {
+            isMoving = false;
+            tryPostMove();
+
+        });
+    }
+
+    private void tryPostMove()
+    {
+        if (positionToMove != Vector3.zero)
+        {
+            CheckAndMove(positionToMove);
+            positionToMove = Vector3.zero;
+
+            if (positionToMove == Vector3.forward)
+            {
+                GameManager.Instance.TryAddScore();
+            }
+        }
     }
 
     public void CheckCurrentPostition()
