@@ -28,7 +28,7 @@ public class MovingTileComponent : TileComponent
     // Update is called once per frame
     void Update()
     {
-        if (Time.frameCount % 46 == 0) { 
+        if (Time.frameCount % 45 == 0) { 
             transform.position += (!goingLeft) ? SPEED * Vector3.right : SPEED * Vector3.left;
         }
         attachPosition = transform.position;
