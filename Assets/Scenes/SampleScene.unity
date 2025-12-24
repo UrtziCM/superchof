@@ -596,15 +596,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 634914618465037133, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 634914618465037133, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 634914618465037133, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 634914618465037133, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_LocalRotation.w
@@ -624,11 +624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 634914618465037133, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -115
+      value: -338.46863
       objectReference: {fileID: 0}
     - target: {fileID: 634914618465037133, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 170
+      value: 357.4538
       objectReference: {fileID: 0}
     - target: {fileID: 634914618465037133, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -771,8 +771,16 @@ PrefabInstance:
       value: 86
       objectReference: {fileID: 0}
     - target: {fileID: 7973497532025884742, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973497532025884742, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973497532025884742, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7973497532025884742, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_LocalRotation.w
@@ -792,11 +800,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973497532025884742, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -115
+      value: -338.46863
       objectReference: {fileID: 0}
     - target: {fileID: 7973497532025884742, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 170
+      value: 357.4538
       objectReference: {fileID: 0}
     - target: {fileID: 7973497532025884742, guid: 49ca4c9cd59d50b4a9db39c723297f65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -871,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2466,8 +2474,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4263,8 +4271,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -6112,11 +6120,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4885932553050512993, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
       propertyPath: m_fontSize
-      value: 100
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885932553050512993, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_margin.w
+      value: -160.3657
       objectReference: {fileID: 0}
     - target: {fileID: 4885932553050512993, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
       propertyPath: m_fontSizeBase
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6972956461528556402, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
       propertyPath: m_SortingOrder
