@@ -43,11 +43,7 @@ public class PlayerController : MonoBehaviour
                 CheckAndMove(Vector3.forward);
                 GameManager.Instance.TryAddScore();
             }
-            else
-            {
-                positionToMove = Vector3.forward;
-            }
-
+            else positionToMove = Vector3.forward;
         }
     }
 
@@ -57,11 +53,8 @@ public class PlayerController : MonoBehaviour
 
         if (callbackContext.performed)
         {
-            CheckAndMove(Vector3.back);
-        }
-        else
-        {
-            positionToMove = Vector3.back;
+            if (!isMoving) CheckAndMove(Vector3.back);
+            else positionToMove = Vector3.back;
         }
     }
 
@@ -71,11 +64,9 @@ public class PlayerController : MonoBehaviour
 
         if (callbackContext.performed)
         {
-            CheckAndMove(Vector3.left);
-        }
-        else
-        {
-            positionToMove = Vector3.left;
+            if(!isMoving) CheckAndMove(Vector3.left);
+            else positionToMove = Vector3.left;
+            
         }
     }
 
@@ -85,11 +76,8 @@ public class PlayerController : MonoBehaviour
 
         if (callbackContext.performed)
         {
-            CheckAndMove(Vector3.right);
-        }
-        else
-        {
-            positionToMove = Vector3.right;
+            if (!isMoving) CheckAndMove(Vector3.right);
+            else positionToMove = Vector3.right;
         }
     }
 
@@ -155,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
         transform.SetParent(tile.transform);
         //transform.position = tile.attachPosition;
-        moveTween = transform.DOMove(tile.attachPosition, 0.2f, false).OnComplete(() =>
+        moveTween = transform.DOMove(tile.attachPosition, 0.1f, false).OnComplete(() =>
         {
             isMoving = false;
             tryPostMove();
@@ -168,12 +156,13 @@ public class PlayerController : MonoBehaviour
         if (positionToMove != Vector3.zero)
         {
             CheckAndMove(positionToMove);
-            positionToMove = Vector3.zero;
 
             if (positionToMove == Vector3.forward)
             {
                 GameManager.Instance.TryAddScore();
             }
+
+            positionToMove = Vector3.zero;
         }
     }
 
