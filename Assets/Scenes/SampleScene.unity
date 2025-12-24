@@ -6118,6 +6118,82 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_Pivot.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986413795112491861, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104352356995186185, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: adb2bb0b83f44f7439f578f7ccabea62, type: 3}
+    - target: {fileID: 8104352356995186185, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104352356995186185, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104352356995186185, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1079153451}
+    - target: {fileID: 8104352356995186185, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104352356995186185, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104352356995186185, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104352356995186185, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8890774583783057960, guid: 3e3be1443713d9b40838e4caf462ea48, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -6666,7 +6742,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!224 &2057115948
 RectTransform:
